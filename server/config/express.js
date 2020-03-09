@@ -29,8 +29,8 @@ module.exports.init = () => {
     // add a router
     app.use('/api/example', exampleRouter);
     app.use('/api/try',exampleRouter)
-    app.use('/:name',anotherRouter);
-    app.use('/',exampleRouter);
+    app.use('/weather/:name',anotherRouter);
+    app.use('/weather',exampleRouter);
 
     if (process.env.NODE_ENV === 'production') {
         // Serve any static files

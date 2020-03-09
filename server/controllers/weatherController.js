@@ -4,7 +4,8 @@ const Example = require('../models/examples.server.model.js')
  exports.hello = function(req, res,body) {
     //console.log(req.baseUrl);
     
-    var search = req.baseUrl.substring(1);
+    var search = req.baseUrl.substring(9);
+    console.log(search);
     //console.log(search);
     const fetch = require("node-fetch");
 
