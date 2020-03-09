@@ -1,12 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Bellota');
+
 body {
     margin: 0;
     font-family: 'Bellota', cursive;
 }
-@import url('https://fonts.googleapis.com/css?family=Bellota');
 
 .Landing-header{
     text-align: center;
-    color: #F8F8FF;
+    color: white;
     font-size: calc(100px + 3vmin);
     top: 40px;
     position: absolute;
@@ -17,7 +18,7 @@ body {
     background: transparent;
     font-size: calc(10px + 2vmin);
     color: white;
-    top: 185px;
+    top: 200px;
     position: absolute;
 }
 .Redirect-rectangle{
@@ -66,23 +67,23 @@ body {
 .Login-user {
     color: white;
     font-size: calc(5px + 1vmin);
-    bottom: 120px;
-    right: 185px;
+    bottom: 170px;
+    right: 175px;
     position: absolute;
 }
 .Login-insurance {
     color: white;
     font-size: calc(5px + 1vmin);
     bottom: 100px;
-    right: 155px;
+    right: 150px;
     position: absolute;
 }
 .Question-left{
     color: white;
-    font-size: calc(5px + 1vmin);
+    font-size: calc(5px + 2vmin);
     position: absolute;
-    left: 35px;
-    bottom: 150px;
+    left: -25px;
+    bottom: 190px;
 }
 .Question-right{
     color: white;

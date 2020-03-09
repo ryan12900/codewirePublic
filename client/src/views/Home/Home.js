@@ -13,7 +13,9 @@ function Home() {
                     CityRanker
                 </header>
                 <div className="Landing-rectangle">
-                    About us etc etc....
+                    CityRanker is a platform for users to compare city insurance rates around the United States.
+                    With an account, users are able to compare a variety of cities based on insurance rates,
+                    accident prevalence, and weather data.
                 </div>
                 <div className="Redirect-rectangle">
                     <a
