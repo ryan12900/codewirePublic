@@ -20,3 +20,15 @@
         password: String,
     }
   ````
+
+## Weather
+* _weather/cityName_ - Route to a specific city's weather information: Returns the following parameters:
+    ````
+    {
+        cityName: String,
+        weatherMain: String,
+        weatherDescription: String,
+        visibility: number,
+        windSpeed: number,
+    }
+    ----
