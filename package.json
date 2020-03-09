@@ -36,6 +36,7 @@
     "should": "^13.2.3",
     "supertest": "^4.0.2",
     "validator": "^12.2.0"
+    "xmlhttprequest": "^1.8.0"
   },
   "homepage": "https://github.com/UFWebApps/React_Template_Repo#readme"
 }

@@ -1,5 +1,40 @@
 body {
     margin: 0;
+    font-family: 'Bellota', cursive;
+}
+@import url('https://fonts.googleapis.com/css?family=Bellota');
+
+.Landing-header{
+    text-align: center;
+    color: #F8F8FF;
+    font-size: calc(100px + 3vmin);
+    top: 40px;
+    position: absolute;
+}
+.Landing-rectangle{
+    width:500px;
+    height:200px;
+    background: transparent;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    top: 185px;
+    position: absolute;
+}
+.Redirect-rectangle{
+    width:300px;
+    height:250px;
+    background: transparent;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    bottom: 10px;
+    position: absolute;
+}
+.vl {
+    border-left: 3px solid white;
+    height: 230px;
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
 }
 
 .App {
@@ -12,16 +47,66 @@ body {
 }
 
 .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
+    background-color: white;
+    min-height: 200vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    color: white;
 }
 
-.App-link {
-    color: #09d3ac;
+.Sign-Up {
+    color: white;
+    font-size: calc(10px + 2vmin);
+    bottom: 120px;
+    right: 40px;
+    position: absolute;
 }
+.Login-user {
+    color: white;
+    font-size: calc(5px + 1vmin);
+    bottom: 120px;
+    right: 185px;
+    position: absolute;
+}
+.Login-insurance {
+    color: white;
+    font-size: calc(5px + 1vmin);
+    bottom: 100px;
+    right: 155px;
+    position: absolute;
+}
+.Question-left{
+    color: white;
+    font-size: calc(5px + 1vmin);
+    position: absolute;
+    left: 35px;
+    bottom: 150px;
+}
+.Question-right{
+    color: white;
+    font-size: calc(5px + 1vmin);
+    position: absolute;
+    left: 160px;
+    bottom: 150px;
+}
+.header {
+    background: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 1%;
+}
+.background-logo {
+    min-height: 100%;
+    min-width: 1024px;
+
+    width: 100%;
+    height: auto;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
