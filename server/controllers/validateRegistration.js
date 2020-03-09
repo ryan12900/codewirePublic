@@ -14,10 +14,17 @@ module.exports = (req, res, next) => {
     signUpData.password2 = !isEmpty(body.password2) ? body.password2 : "";
     signUpData.role = !isEmpty(body.role) ? body.role : "";
 
+    console.log(signUpData);
+
 // Check first and last name
-    if (Validator.isEmpty(signUpData.name)) {
-        errors.name = "Name field is required";
+    if (Validator.isEmpty(signUpData.firstName)) {
+        errors.firstName = "First name field is required";
     }
+
+    if (Validator.isEmpty(signUpData.lastName)) {
+        errors.lastName = "Last name field is required";
+    }
+
 // Check email
     if (Validator.isEmpty(signUpData.email)) {
         errors.email = "Email field is required";
@@ -40,7 +47,7 @@ module.exports = (req, res, next) => {
     }
 
 // Check roles
-    if (!(Validator.equals(signUpData.roles, 'customer') || Validator.equals(signUpData.roles, 'agent'))) {
+    if (!(Validator.equals(signUpData.role, 'customer') || Validator.equals(signUpData.role, 'agent'))) {
         errors.role = "Invalid";
     }
 
