@@ -20,7 +20,7 @@ function Home() {
                 <div className="Redirect-rectangle">
                     <a
                         className="Login-user"
-                        href="https://reactjs.org"
+                        href="./Login"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -28,7 +28,7 @@ function Home() {
                     </a>
                     <a
                         className="Login-insurance"
-                        href="https://reactjs.org"
+                        href="./SignupInsurance"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -37,7 +37,7 @@ function Home() {
 
                     <a
                         className="Sign-Up"
-                        href="https://reactjs.org"
+                        href="./Signup"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
