@@ -1,25 +1,32 @@
 import React from 'react';
 import { Route, Switch, Redirect  } from 'react-router-dom';
-import Signup from "./components/Signup";
-import SignupInsurance from "./components/SignupInsurance";
-import Login from "./components/Login";
 import Home from "./views/Home/Home";
-import NotFound from "./views/NotFound";
-import NavBar from "./components/Header/NavBar";
+import Register from './views/Register';
+import LogIn from './views/LogIn'
+import background from "./assets/aerial-photo-of-buildings-and-roads-681335.jpg";
+import Dashboard from "./views/Dashboard";
+
+const backgroundStyles = {
+    minHeight: '100%',
+    minWidth: '1024px',
+    width: '100%',
+    height: 'auto',
+    position: 'fixed',
+    top: '0',
+    left: '0'
+};
 
 const App = () => {
   return (
     <div>
         {/* <NavBar />*/}
-      <Switch>
-        <Route exact path="/Home" component={Home} />
-        <Route exact path="/Signup" component={Signup} />
-        <Route exact path="/SignupInsurance" component={SignupInsurance} />
-        <Route exact path="/Login" component={Login} />
-        <Route exact path="/">
-          <Redirect to="/Home" />
-        </Route>
-        <Route component={NotFound}/>
+        <img src={background} className="background-logo" style={backgroundStyles}/>
+        <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/register" component={Register} />
+        <Route exact path="/log-in" component={LogIn} />
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Redirect to={'/'}/>
       </Switch>
     </div>
   );
