@@ -32,6 +32,9 @@ const styles = {
         justifyContent: 'space-around',
         width: '30%',
         margin: '25px auto',
+    },
+    button: {
+        fontSize: '17px'
     }
 };
 
@@ -50,8 +53,8 @@ function Home() {
                         </Card.Description>
 
                         <div style={styles.buttons}>
-                            <Button color={'blue'}>Log In</Button>
-                            <Button color={'orange'}>Sign Up</Button>
+                            <Button color={'blue'} style={styles.button}>Log In</Button>
+                            <Button color={'orange'} style={styles.button}>Sign Up</Button>
                         </div>
                     </Card.Content>
                 </Card>
