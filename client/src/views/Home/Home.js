@@ -8,7 +8,6 @@ function Home() {
     return (
         <div className="App">
             <header className="App-header">
-                <img src={background} className="background-logo"/>
                 <header className="Landing-header">
                     CityRanker
                 </header>
