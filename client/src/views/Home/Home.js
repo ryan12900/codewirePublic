@@ -1,58 +1,61 @@
 import React from 'react';
-import logo from '../../assets/logo.svg';
-import './Home.css';
-import background from '../../assets/aerial-photo-of-buildings-and-roads-681335.jpg'
 import {Link} from "react-router-dom";
+import { Container } from 'semantic-ui-react'
+import { Button, Card } from 'semantic-ui-react'
+import '../main.css'
+
+const styles = {
+    container: {
+        height: "100vh"
+    },
+    card: {
+        margin: '15% auto',
+        width: '80%',
+        height: '30%',
+        textAlign: 'center',
+        padding: '25px'
+    },
+    content: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-around'
+    },
+    heading: {
+        fontSize: '45px'
+    },
+    mainText: {
+        fontSize: '20px'
+    },
+    buttons: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        width: '30%',
+        margin: '25px auto',
+    }
+};
 
 function Home() {
     return (
-        <div className="App">
-            <header className="App-header">
-                <header className="Landing-header">
-                    CityRanker
-                </header>
-                <div className="Landing-rectangle">
-                    CityRanker is a platform for users to compare city insurance rates around the United States.
-                    With an account, users are able to compare a variety of cities based on insurance rates,
-                    accident prevalence, and weather data.
-                </div>
-                <div className="Redirect-rectangle">
-                    <a
-                        className="Login-user"
-                        href="./Login"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Login As User
-                    </a>
-                    <a
-                        className="Login-insurance"
-                        href="./SignupInsurance"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Login As Insurance Provider
-                    </a>
+        <Container style={styles.container}>
+                <Card style={styles.card}>
+                    <Card.Content style={styles.content}>
+                        <Card.Header>
+                            <h1 style={styles.heading}>CityRanker</h1>
+                        </Card.Header>
+                        <Card.Description >
+                            <p style={styles.mainText}>CityRanker is a platform for users to compare city insurance rates around the United States.
+                            With an account, users are able to compare a variety of cities based on insurance rates,
+                                accident prevalence, and weather data.</p>
+                        </Card.Description>
 
-                    <a
-                        className="Sign-Up"
-                        href="./Signup"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Sign Up
-                    </a>
-                    <p className="vl"></p>
-                    <p className="Question-left">
-                        Click Here to Login:
-                    </p>
-                    <p className="Question-right">
-                        Don't Have an Account?
-                        Click Here:
-                    </p>
-                </div>
-            </header>
-        </div>
+                        <div style={styles.buttons}>
+                            <Button color={'blue'}>Log In</Button>
+                            <Button color={'orange'}>Sign Up</Button>
+                        </div>
+                    </Card.Content>
+                </Card>
+        </Container>
     );
 }
 
