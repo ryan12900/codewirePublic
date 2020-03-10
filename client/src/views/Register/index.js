@@ -88,7 +88,7 @@ function Home() {
                         <Link to={'/'}>
                             <Button color={'red'} style={styles.button}>Back</Button>
                         </Link>
-                        <Link to={'/register'}>
+                        <Link to={'/dashboard'}>
                             <Button color={'blue'} style={styles.button}>Sign Up</Button>
                         </Link>
                     </div>

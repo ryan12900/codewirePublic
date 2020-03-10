@@ -63,7 +63,9 @@ function Home() {
                         <Link to={'/'}>
                             <Button color={'red'} style={styles.button}>Back</Button>
                         </Link>
-                        <Button color={'blue'} style={styles.button}>Log In</Button>
+                        <Link to={'/dashboard'}>
+                            <Button color={'blue'} style={styles.button}>Log In</Button>
+                        </Link>
                     </div>
                 </Card.Content>
             </Card>
