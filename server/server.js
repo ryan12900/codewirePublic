@@ -14,8 +14,10 @@ app.use(passport.initialize());
 // Passport config
 require("./config/passport")(passport);
 
-// Routes
+// Public Routes
 app.use("/users", users);
-app.use("/weather", weather);
+
+// Protected Routes
+app.use("/weather", passport.authenticate('jwt', { session: false }),weather);
 
 app.listen(port, () => console.log(`Server now running on port ${port}!`));
