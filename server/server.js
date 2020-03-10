@@ -18,6 +18,7 @@ require("./config/passport")(passport);
 app.use("/users", users);
 
 // Protected Routes
-app.use("/weather", passport.authenticate('jwt', { session: false }),weather);
+// app.use("/weather", passport.authenticate('jwt', { session: false }),weather);
+app.use("/weather",weather);
 
 app.listen(port, () => console.log(`Server now running on port ${port}!`));
