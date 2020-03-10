@@ -38,7 +38,7 @@ const styles = {
     }
 };
 
-function Home() {
+function SignUp() {
     return (
         <Container style={styles.container}>
                 <Card style={styles.card}>
@@ -53,8 +53,12 @@ function Home() {
                         </Card.Description>
 
                         <div style={styles.buttons}>
-                            <Button color={'blue'} style={styles.button}>Log In</Button>
-                            <Button color={'orange'} style={styles.button}>Sign Up</Button>
+                            <Link to={'/log-in'}>
+                                <Button color={'blue'} style={styles.button}>Log In</Button>
+                            </Link>
+                            <Link to={'/register'}>
+                                <Button color={'orange'} style={styles.button}>Sign Up</Button>
+                            </Link>
                         </div>
                     </Card.Content>
                 </Card>
@@ -62,4 +66,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default SignUp;
