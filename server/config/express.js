@@ -4,7 +4,7 @@ const path = require('path'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     exampleRouter = require('../routes/examples.server.routes'),
-    anotherRouter = require('../routes/weatherRouter');
+    anotherRouter = require('../routes/weather');
 
 module.exports.init = () => {
     /* 
@@ -30,11 +30,6 @@ module.exports.init = () => {
         extended: true
     }));
 
-    // add a router
-    app.use('/api/example', exampleRouter);
-    app.use('/api/try',exampleRouter)
-    app.use('/weather/:name',anotherRouter);
-    app.use('/weather',exampleRouter);
 
     if (process.env.NODE_ENV === 'production') {
         // Serve any static files
