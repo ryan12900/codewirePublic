@@ -1,5 +1,3 @@
-//import request from 'request';
-const Example = require('../models/examples.server.model.js')
 const fetch = require("node-fetch");
 
  module.exports = function(req, res,body) {
