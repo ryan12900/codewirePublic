@@ -66,7 +66,7 @@ function Login() {
             })
     };
 
-    if(setLoginStatus){
+    if(loginStatus){
         return <Redirect to={'/dashboard'}/>
     }
 
@@ -94,12 +94,13 @@ function Login() {
                         <Link to={'/'}>
                             <Button color={'red'} style={styles.button}>Back</Button>
                         </Link>
-                            <Button color={'blue'} style={styles.button} onClick={handleSubmit}>Log In</Button>
+                        <Button color={'blue'} style={styles.button} onClick={handleSubmit}>Log In</Button>
                     </div>
                 </Card.Content>
             </Card>
         </Container>
     );
+
 }
 
 export default Login;
