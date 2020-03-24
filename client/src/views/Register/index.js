@@ -65,7 +65,7 @@ function Home() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post(`${serverUrl}/register`, form)
+        axios.post(`${serverUrl}/users/register`, form)
             .then(() => {
                 alert("User was successfully created")
             })
