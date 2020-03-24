@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import {Container, Form} from 'semantic-ui-react'
 import { Button, Card } from 'semantic-ui-react'
+import styles from "../styles";
 import '../main.css'
 import axios from 'axios'
 import serverUrl from '../../assets/server-url';
