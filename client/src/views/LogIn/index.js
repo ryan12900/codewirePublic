@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import { Container } from 'semantic-ui-react'
 import { Button, Card , Form} from 'semantic-ui-react'
 import axios from 'axios';
@@ -7,29 +7,35 @@ import serverURL from '../../assets/server-url';
 import '../main.css'
 import styles from "../styles";
 
-function Home() {
-
+function Login() {
+    // States
     const [form, setForm] = React.useState({
         email: '',
         password: '',
     });
+    const [loginStatus, setLoginStatus] = React.useState(false);
 
+    // Handlers
     const handleChange = (e) => {
         const {name, value} = e.target;
         setForm({...form, [name]: value});
     };
-
     const handleSubmit = (e) => {
         e.preventDefault();
         axios.post(`${serverURL}/users/login`, form)
             .then(() => {
-                alert("You were successfully logged in!")
+                alert("You were successfully logged in!");
+                setLoginStatus(true);
             })
-            .catch((e) => {
-                console.log(e)
-                alert("There was an error logging you in!")
+            .catch(() => {
+                alert("There was an error logging you in!");
+                setLoginStatus(false);
             })
     };
+
+    if(setLoginStatus){
+        return <Redirect to={'/dashboard'}/>
+    }
 
     return (
         <Container style={styles.container}>
@@ -63,4 +69,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Login;

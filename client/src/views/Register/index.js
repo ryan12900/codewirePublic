@@ -5,10 +5,11 @@ import { Button, Card } from 'semantic-ui-react'
 import '../main.css'
 import axios from 'axios'
 import serverUrl from '../../assets/server-url';
-import styles from "../styles";
+import Redirect from "react-router-dom/es/Redirect";
 
 
-function Home() {
+function Register() {
+    // States
     const [form, setForm] = React.useState({
        firstName: '',
        lastName: '',
@@ -17,7 +18,9 @@ function Home() {
        password2: '',
         role: '',
     });
+    const [registrationStatus, setRegistrationStatus] = React.useState(false);
 
+    // Handlers
     const handleChange = (e, data) => {  // We use 'data' for semantic ui components.
         let name, value;
         if(data){
@@ -30,23 +33,30 @@ function Home() {
 
         setForm({...form, [name]: value});
     };
-
     const handleSubmit = (e) => {
         e.preventDefault();
         axios.post(`${serverUrl}/users/register`, form)
             .then(() => {
-                alert("User was successfully created")
+                alert("User was successfully created");
+                setRegistrationStatus(true);
             })
             .catch(() => {
                 alert("An error occurred while registering!");
+                setRegistrationStatus(false);
             })
     };
 
-
+    // Local component Data
     const options = [
         { key: 'a', text: 'Agent', value: 'agent' },
         { key: 'c', text: 'Customer', value: 'customer' },
     ];
+
+
+    // Conditional Rendering
+    if(registrationStatus){
+        return (<Redirect to={'/log-in'}/>)
+    }
 
     return (
         <Container style={styles.container}>
@@ -103,4 +113,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Register;
