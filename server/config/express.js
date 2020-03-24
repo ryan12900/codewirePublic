@@ -3,6 +3,7 @@ const path = require('path'),
     mongoose = require('mongoose'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
+    cors = require('cors'),
     exampleRouter = require('../routes/examples.server.routes'),
     anotherRouter = require('../routes/weather');
 
@@ -19,6 +20,9 @@ module.exports.init = () => {
 
     // initialize app
     const app = express();
+
+    // enable all CORS requests
+    app.use(cors());
 
     // enable request logging for development debugging
     app.use(morgan('dev'));

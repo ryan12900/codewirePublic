@@ -1,7 +1,7 @@
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");
-const keys = require('../config/config');
+const keys = process.env.JWT_SECRET || require('../config/config').secretOrKey;
 
 module.exports = (req, res, next) => {
 
@@ -27,7 +27,7 @@ module.exports = (req, res, next) => {
     // Sign token
             jwt.sign(
                 payload,
-                keys.secretOrKey,
+                keys,
                 {
                     expiresIn: 900 // 15 minutes in seconds
                 },
