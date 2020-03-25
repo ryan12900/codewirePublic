@@ -5,6 +5,7 @@ const path = require('path'),
     bodyParser = require('body-parser'),
     exampleRouter = require('../routes/examples.server.routes'),
     anotherRouter = require('../routes/weather');
+    accidentRouter = require('../routes/accident');
 
 module.exports.init = () => {
     /* 
@@ -29,6 +30,8 @@ module.exports.init = () => {
     app.use(bodyParser.urlencoded({
         extended: true
     }));
+
+    app.use('/accidents', accidentRouter);
 
 
     if (process.env.NODE_ENV === 'production') {

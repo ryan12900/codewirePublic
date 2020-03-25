@@ -3,6 +3,7 @@
 
 module.exports = {
     db: {
-        uri: '', //place the URI of your mongo database here.
+        uri: 'mongodb+srv://jhook1:%230805166Jh%21@cluster0-fgscp.mongodb.net/test?retryWrites=true&w=majority', //place the URI of your mongo database here.
+        secretOrKey: 'secret'
     }
 };
