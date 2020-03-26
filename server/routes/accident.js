@@ -1,6 +1,6 @@
 const accident = require('../controllers/accident.controller.js'),
     express = require('express'),
-    router = express.Router()
+    router = express.Router();
 
 //router.route('/').get(accident.accidents);
 router.route('/states=:stateName').get(accident.byState);
