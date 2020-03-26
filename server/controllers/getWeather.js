@@ -1,6 +1,8 @@
 const fetch = require("node-fetch");
+//'&appid=1889e5a93eae80776956083ea2e9f74d'
 
- module.exports = function(req, res,body) {
+
+ exports.weather  = function(req, res,body) {
     //console.log(req.baseUrl);
     
     const search = req.params.city;
