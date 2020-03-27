@@ -6,6 +6,7 @@ import LogIn from './views/LogIn'
 import Background_pic from "./assets/aerial-photo-of-buildings-and-roads-681335.jpg";
 import Dashboard from "./views/Dashboard";
 import '../src/views/main.css'
+import Admin from "./views/Admin/Admin";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route exact path="/register" component={Register} />
         <Route exact path="/log-in" component={LogIn} />
         <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/admin" component={Admin} />
         <Redirect to={'/'}/>
       </Switch>
     </div>
