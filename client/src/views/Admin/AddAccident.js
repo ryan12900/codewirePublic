@@ -50,10 +50,10 @@ function AddAccident() {
                     </Card.Description>
 
                     <div style={styles.buttons}>
-                        <Link to={'/'}>
+                        <Link to={'/admin'}>
                             <Button color={'red'} style={styles.button}>Back</Button>
                         </Link>
-                        <Button color={'blue'} style={styles.button} >Sign Up</Button>
+                        <Button color={'blue'} style={styles.button} >Submit</Button>
                     </div>
                 </Card.Content>
             </Card>
