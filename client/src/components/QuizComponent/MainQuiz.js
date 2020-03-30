@@ -4,6 +4,8 @@ import { Button } from 'semantic-ui-react';
 import styles from "../../views/styles";
 import '../../views/Quiz/QuizStyle.css';
 
+//This file features modified code provide for free use by User NinjaAniket on codesandbox.io at https://codesandbox.io/s/reactquizapp-mty8j
+
 class MainQuiz extends React.Component {
     state = {
         currentQuestion: 0,
@@ -60,6 +62,11 @@ class MainQuiz extends React.Component {
     checkAnswer = answer => {
         this.setState({ myAnswer: answer, disabled: false });
     };
+
+    passedQuiz(){
+        fetch("http://localhost:9000/testAPI")
+    }
+
     finishHandler = () => {
         const { myAnswer, answer, score } = this.state;
         if (myAnswer === answer) {

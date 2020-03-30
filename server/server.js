@@ -2,6 +2,7 @@ const express = require('./config/express.js');
 const passport = require("passport");
 const users = require("./routes/users");
 const weather = require("./routes/weather");
+
 // Use env port or default
 const port = process.env.PORT || 5000;
 
