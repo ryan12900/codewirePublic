@@ -18,7 +18,7 @@ const App = () => {
         <Route exact path="/register" component={Register} />
         <Route exact path="/log-in" component={LogIn} />
         <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/Quiz" component={Quiz} />
+        <Route exact path="/quiz" component={Quiz} />
         <Redirect to={'/'}/>
       </Switch>
     </div>
