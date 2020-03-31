@@ -1,0 +1,9 @@
+.selected {
+    background: linear-gradient(to right, #74ebd5, #acb6e5) !important;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
