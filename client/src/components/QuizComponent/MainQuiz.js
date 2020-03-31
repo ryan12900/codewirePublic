@@ -1,4 +1,6 @@
 import React from "react";
+import axios from 'axios';
+import serverURL from '../../assets/server-url';
 import { quizData } from "./QuizData";
 import { Button } from 'semantic-ui-react';
 import styles from "../../views/styles";
@@ -15,6 +17,7 @@ class MainQuiz extends React.Component {
         disabled: true,
         isEnd: false
     };
+
 
     loadQuizData = () => {
         // console.log(quizData[0].question)
@@ -63,9 +66,6 @@ class MainQuiz extends React.Component {
         this.setState({ myAnswer: answer, disabled: false });
     };
 
-    passedQuiz(){
-        fetch("http://localhost:9000/testAPI")
-    }
 
     finishHandler = () => {
         const { myAnswer, answer, score } = this.state;
@@ -83,8 +83,15 @@ class MainQuiz extends React.Component {
     };
     render() {
         const { options, myAnswer, currentQuestion, isEnd } = this.state;
-
         if (isEnd) {
+            const {userId} = this.props;
+            const {score} = this.state.score;
+            axios.post(`${serverURL}/${userId}/quiz`, {score}).then(() => {
+                alert("Your score was updated!")
+            }).catch(() => {
+                alert("There was an error updating your score!");
+            });
+
             return (
                 <div className="result">
                     <h3>Questions correct: {this.state.score} out of {quizData.length}</h3>
