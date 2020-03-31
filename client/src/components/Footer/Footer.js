@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import {Button, Card,Menu, Container, Divider, Dropdown,List,Header,Grid,Segment,Image} from "semantic-ui-react";
 import logo from '../Footer/car-icon-3657902_960_720.png'
 

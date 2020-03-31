@@ -32,7 +32,7 @@ const styles = {
         fontSize: '17px'
     },
     button_Admin:{
-        fontSize: '17px',
+        fontSize: '15px',
         marginBottom: '1em',
     },
     form: {

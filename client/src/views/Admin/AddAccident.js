@@ -48,7 +48,6 @@ function AddAccident() {
                             </Form.Field>
                         </Form>
                     </Card.Description>
-
                     <div style={styles.buttons}>
                         <Link to={'/admin'}>
                             <Button color={'red'} style={styles.button}>Back</Button>

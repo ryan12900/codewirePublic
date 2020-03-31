@@ -27,14 +27,24 @@ function Admin() {
                             <Button.Content hidden>Go for it</Button.Content>
                         </Button>
                         </Link>
+                        <Link to={"/client_info"}>
                         <Button animated='fade' color='teal' style={styles.button_Admin}>
                             <Button.Content visible> View Information of a Client</Button.Content>
                             <Button.Content hidden>Client</Button.Content>
                         </Button>
+                        </Link>
+                        <Link to={"statistic_city"}>
                         <Button animated="fade" color="blue" style={styles.button_Admin}>
                             <Button.Content visible> Statistics about a City </Button.Content>
                             <Button.Content hidden> City </Button.Content>
                         </Button>
+                        </Link>
+                        <Link to={"info_accident"}>
+                        <Button animated="fade" color="green" style={styles.button_Admin}>
+                            <Button.Content visible> View info about an accident </Button.Content>
+                            <Button.Content hidden> Accident </Button.Content>
+                        </Button>
+                        </Link>
                     </Card.Description>
                 </Card.Content>
             </Card>

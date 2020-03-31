@@ -8,6 +8,9 @@ import Dashboard from "./views/Dashboard";
 import '../src/views/main.css'
 import Admin from "./views/Admin/Admin";
 import AddAccident from "./views/Admin/AddAccident";
+import Client_info from "./views/Admin/Client_Info";
+import Info_accident from "./views/Admin/Info_accident";
+import Statistic_city from "./views/Admin/Statistic_city";
 
 const App = () => {
   return (
@@ -21,6 +24,9 @@ const App = () => {
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/admin" component={Admin} />
         <Route exact path="/add_accident" component={AddAccident} />
+        <Route exact path="/client_info" component={Client_info} />
+        <Route exact path="/info_accident" component={Info_accident}/>
+        <Route exact path="/statistic_city" component={Statistic_city} />
         <Redirect to={'/'}/>
       </Switch>
     </div>
