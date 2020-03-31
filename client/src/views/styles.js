@@ -1,6 +1,7 @@
+//client/src/assets/aerial-photo-of-buildings-and-roads-681335.jpg
 const styles = {
     container: {
-        height: "100vh"
+        height: "100vh",
     },
     card: {
         margin: '15% auto',
@@ -29,6 +30,10 @@ const styles = {
     },
     button: {
         fontSize: '17px'
+    },
+    button_Admin:{
+        fontSize: '15px',
+        marginBottom: '1em',
     },
     form: {
         textAlign: 'left'

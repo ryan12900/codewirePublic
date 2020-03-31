@@ -3,9 +3,8 @@ const path = require('path'),
     mongoose = require('mongoose'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
-    exampleRouter = require('../routes/examples.server.routes'),
-    anotherRouter = require('../routes/weather');
-    accidentRouter = require('../routes/accident');
+    cors = require('cors');
+
 
 module.exports.init = () => {
     /* 
@@ -21,6 +20,9 @@ module.exports.init = () => {
     // initialize app
     const app = express();
 
+    // enable all CORS requests
+    app.use(cors());
+
     // enable request logging for development debugging
     app.use(morgan('dev'));
 
@@ -30,9 +32,6 @@ module.exports.init = () => {
     app.use(bodyParser.urlencoded({
         extended: true
     }));
-
-    app.use('/accidents', accidentRouter);
-
 
     if (process.env.NODE_ENV === 'production') {
         // Serve any static files
