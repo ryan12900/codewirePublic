@@ -21,7 +21,7 @@ module.exports = (req, res, next) => {
             // User matched
             // Create JWT Payload
             const payload = {
-                id: user.id,
+                id: user._id,
                 name: user.name
             };
     // Sign token
@@ -34,7 +34,9 @@ module.exports = (req, res, next) => {
                 (err, token) => {
                     res.json({
                         success: true,
-                        token: "Bearer " + token
+                        token: "Bearer " + token,
+                        role: user.role,
+                        id: user._id
                     });
                 }
             );
