@@ -28,9 +28,9 @@ const UserSchema = new Schema({
         type: String,
         enum: ['customer','agent']
     },
-    passedQuiz: {
-        type: Boolean,
-        default: false
+    quizScore: {
+        type: Number,
+        default: 0
     }
 });
 
