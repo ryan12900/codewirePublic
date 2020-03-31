@@ -9,9 +9,7 @@ import serverURL from '../../assets/server-url';
 
 function Dashboard() {
 
-    const [weather,setweather] = React.useState({
-        city:'',
-    });
+    const [weather,setweather] = React.useState('');
 
     //Handler
     const handlechange= (e) => {
@@ -45,7 +43,7 @@ function Dashboard() {
                     <Card.Description >
                         <h2>Weather Information</h2>
                         <label> City </label>
-                            <Input type="name" placeholder="City" value={weather.city}  onChange={handlechange} />
+                            <Input type="name" placeholder="City" value={weather}  onChange={handlechange} />
                     </Card.Description>
                     <div>
                     <Button color={'blue'} style={styles.button} onClick={handleSubmit} style={styles.button}>Submit</Button>
