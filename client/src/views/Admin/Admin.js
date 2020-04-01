@@ -17,7 +17,7 @@ function Admin() {
             <Card style={styles.card}>
                 <Card.Content style={styles.content}>
                     <Card.Header>
-                        <h1 style={styles.heading}>Hello Agent /*Name*/</h1>
+                        <h1 style={styles.heading}>Hello Agent</h1>
                         <h3>What would you like to do today?</h3>
                     </Card.Header>
                     <Card.Description >
