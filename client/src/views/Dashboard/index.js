@@ -57,7 +57,7 @@ function Dashboard() {
                             <Input type="name" placeholder="City" value={weather}  onChange={handlechange} />
                     </Card.Description>
                     <div>
-                    <Button color={'blue'} style={styles.button} onClick={handleSubmit} style={styles.button}>Submit</Button>
+                    <Button color={'blue'} style={styles.button} onClick={handleSubmit}>Submit</Button>
                     </div>
                     <div>
                         <ul>Current Weather
