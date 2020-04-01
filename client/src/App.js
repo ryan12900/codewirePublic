@@ -23,7 +23,7 @@ const App = () => {
 
   return (
     <div>
-         <NavBar auth={auth} />
+        <NavBar auth={auth} setAuth={setAuth}/>
         <img src={Background_pic} class='backgroundStyles'/>
         <Switch>
             <Route exact path="/" component={Home} />

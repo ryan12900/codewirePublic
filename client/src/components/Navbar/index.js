@@ -4,11 +4,11 @@ import './NavBar.css';
 import {Menu, Container, Dropdown,} from "semantic-ui-react";
 
 
-const Index = ({auth})=> {
+const Index = ({auth, setAuth})=> {
     let menuOptions;
 
 
-    if(!auth.role){
+    if(auth === undefined || !auth.role){
         return <div/>
     }
 
@@ -18,6 +18,17 @@ const Index = ({auth})=> {
                 <Link to={'/weather'} ><Dropdown.Item style={{color: 'black'}}>Weather</Dropdown.Item></Link>
                 <Link to={'/quiz'} ><Dropdown.Item style={{color: 'black'}}>Safety Quiz</Dropdown.Item></Link>
                 <Link to={'/statistic_city'}><Dropdown.Item style={{color: 'black'}}>Weather</Dropdown.Item></Link>
+            </Dropdown.Menu>);
+    }
+
+    if(auth.role === 'agent'){
+        menuOptions =
+            (<Dropdown.Menu>
+                <Link to={'/add_accident'} ><Dropdown.Item style={{color: 'black'}}>Add Accident</Dropdown.Item></Link>
+                <Link to={'/info_accident'} ><Dropdown.Item style={{color: 'black'}}>Accident Information</Dropdown.Item></Link>
+                <Link to={'/client_info'} ><Dropdown.Item style={{color: 'black'}}>Client information</Dropdown.Item></Link>
+                <Link to={'/statistics_city'} ><Dropdown.Item style={{color: 'black'}}>City statistics</Dropdown.Item></Link>
+
             </Dropdown.Menu>);
     }
 
@@ -31,6 +42,9 @@ const Index = ({auth})=> {
                     <Dropdown item simple text='Options'>
                         {menuOptions}
                     </Dropdown>
+                    <Menu.Item onClick={() => setAuth({})}>
+                        Log Out
+                    </Menu.Item>
                 </Container>
             </Menu>
         </div>
