@@ -8,42 +8,7 @@ import axios from 'axios';
 import serverURL from '../../assets/server-url';
 
 function Dashboard() {
-    //States
-    const [weather,setweather] = React.useState('');
-    const [data,setdata] = React.useState({
-        city:" ",
-        descp:" ",
-        temp: undefined,
-        temp_min: undefined,
-        temp_max: undefined,
-        wind_speed:undefined,
-    });
 
-    //Handler
-    const handlechange= (e) => {
-        const weather_ = e.target.value;
-        setweather(weather_);
-    };
-    const handleSubmit = (e) =>{
-      e.preventDefault();//Default
-      axios.get(`${serverURL}/weather/`+weather)
-          .then(response => {
-              alert("Working");
-              const info = response.data.data;
-
-              setdata({...data,
-                  city: info.name,
-                  descp: info.weather[0].description,
-                  temp: info.main.temp,
-                  temp_min: info.main.temp_min,
-                  temp_max: info.main.temp_max,
-                  wind_speed: info.wind.speed
-              });
-          })
-          .catch(err =>{
-              console.log(err);
-          })
-    };
     return (
         <Container style={styles.container}>
             <Card style={styles.card}>
@@ -52,22 +17,19 @@ function Dashboard() {
                         <h1 style={styles.heading}>Dashboard</h1>
                     </Card.Header>
                     <Card.Description >
-                        <h2>Weather Information</h2>
-                        <label> City </label>
-                            <Input type="name" placeholder="City" value={weather}  onChange={handlechange} />
+                        <h2>Select an option</h2>
                     </Card.Description>
-                    <div>
-                    <Button color={'blue'} style={styles.button} onClick={handleSubmit}>Submit</Button>
-                    </div>
-                    <div>
-                        <ul>Current Weather
-                            <li>City: {data.city}</li>
-                            <li>Description: {data.descp}</li>
-                            <li>Temperature: {data.temp}</li>
-                            <li>Max Temperature: {data.temp_max}</li>
-                            <li>Min Temperature: {data.temp_min}</li>
-                       </ul>
-                    </div>
+                    <Link to={'/weather'}>
+                        <Button>Weather</Button>
+                    </Link>
+                    <br/><br/>
+                    <Link to={'/quiz'}>
+                        <Button>Driver Safety Quiz</Button>
+                    </Link>
+                    <br/><br/>
+                    <Link to={'/statistic_city'}>
+                        <Button>Accidents</Button>
+                    </Link>
                 </Card.Content>
             </Card>
         </Container>
