@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import {Container, Form} from 'semantic-ui-react'
 import { Button, Card } from 'semantic-ui-react'
 import styles from "../styles";
-import NavBar_Admin from "../../components/Header/NavBar_Admin";
+import IndexJs from "../../components/Navbar/index.js";
 import Footer from "../../components/Footer/Footer";
 import axios from "axios";
 import serverURL from "../../assets/server-url";
@@ -38,7 +38,7 @@ function AddAccident() {
 
     return (
         <div>
-        <NavBar_Admin/>
+        <IndexJs/>
         <Container style={styles.container}>
             <Card style={styles.card}>
                 <Card.Content style={styles.content}>

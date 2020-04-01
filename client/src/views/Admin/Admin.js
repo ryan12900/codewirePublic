@@ -4,15 +4,12 @@ import { Container } from 'semantic-ui-react'
 import { Button, Card} from 'semantic-ui-react'
 import '../main.css'
 import styles from "../styles";
-import NavBar_Admin from "../../components/Header/NavBar_Admin";
+import IndexJs from "../../components/Navbar/index.js";
 import Footer from "../../components/Footer/Footer";
 
 function Admin() {
     return (
         <div>
-            <div>
-                <NavBar_Admin/>
-            </div>
         <Container style={styles.container}>
             <Card style={styles.card}>
                 <Card.Content style={styles.content}>

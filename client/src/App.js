@@ -14,7 +14,7 @@ import AddAccident from "./views/Admin/AddAccident";
 import Client_info from "./views/Admin/Client_Info";
 import Info_accident from "./views/Admin/Info_accident";
 import Statistic_city from "./views/Admin/Statistic_city";
-
+import NavBar from './components/Navbar'
 
 const App = () => {
 
@@ -23,7 +23,7 @@ const App = () => {
 
   return (
     <div>
-        {/* <NavBar />*/}
+         <NavBar auth={auth} />
         <img src={Background_pic} class='backgroundStyles'/>
         <Switch>
             <Route exact path="/" component={Home} />

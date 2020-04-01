@@ -22,9 +22,11 @@ function Dashboard() {
                     <Link to={'/weather'}>
                         <Button>Weather</Button>
                     </Link>
+                    <br/><br/>
                     <Link to={'/quiz'}>
                         <Button>Driver Safety Quiz</Button>
                     </Link>
+                    <br/><br/>
                     <Link to={'/statistic_city'}>
                         <Button>Accidents</Button>
                     </Link>
