@@ -8,31 +8,30 @@ import axios from 'axios';
 import serverURL from '../../assets/server-url';
 
 function Client_info() {
-    const [data,setdata] = React.useState({
-        quizScore: undefined,
-        name: " ",
-        email:" ",
-    });
+
+    const [data,setdata] = React.useState([]);
 
     const handleSubmit = (e) =>{
       e.preventDefault();
       axios.get(`${serverURL}/customer/`)
           .then(response =>{
-              alert("Working!!!!");
-              const client_info = response.data.data[0];
-
-              setdata({...data,
-              quizScore: client_info.quizScore,
-                  name: client_info.firstName + " "+ client_info.lastName,
-                  email: client_info.email
-              });
-
-              console.log(response.data.data[0]);
+              setdata(response.data.data);
           })
           .catch(err=>{
               console.log(err);
           })
     };
+
+    const list = data.map((data) => {
+        return (
+            <div>
+                <li>QuizScore: {data.quizScore}</li>
+                <li>Name: {data.firstName}  {data.lastName}</li>
+                <li>Email: {data.email}</li>
+            </div>
+        )
+    });
+
     return (
         <Container style={styles.container}>
             <Card style={styles.card}>
@@ -44,9 +43,7 @@ function Client_info() {
                         </div>
                         <div>
                             <ul> Clients
-                                <li>QuizScore: {data.quizScore}</li>
-                                <li>Name: {data.name}</li>
-                                <li>Email: {data.email}</li>
+                                {list}
                             </ul>
                         </div>
                     </Card.Header>
