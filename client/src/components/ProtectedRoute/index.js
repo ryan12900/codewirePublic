@@ -14,7 +14,7 @@ export default (props) => {
 
     // If the auth role and access don't match, redirect to according home page.
     if(auth.role !== access){
-        if(access === 'customer'){
+        if(auth.role === 'customer'){
             return <Redirect to={'/dashboard'}/>
         } else {
             return <Redirect to={'/admin'}/>
