@@ -4,6 +4,7 @@ const users = require("./routes/users");
 const weather = require("./routes/weather");
 const customer = require("./routes/customer");
 const accidentRouter =  require('./routes/accident');
+const adminRouter = require('./routes/admin');
 
 // Use env port or default
 const port = process.env.PORT || 5000;
@@ -29,6 +30,9 @@ app.use("/customer", customer);
 
 //Accident APi
 app.use('/accidents', accidentRouter);
+
+// Admin routes
+app.use('/admin', adminRouter);
 
 
 app.listen(port, () => console.log(`Server now running on port ${port}!`));
