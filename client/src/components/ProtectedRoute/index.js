@@ -6,8 +6,9 @@ export default (props) => {
     // Extract auth and access from role.
     const {auth, access, ...other} = props;
 
+    console.log(auth);
     // If we are not logged in, redirect to home page.
-    if(!auth){
+    if(!auth.role){
         return <Redirect to={'/'}/>
     }
 
