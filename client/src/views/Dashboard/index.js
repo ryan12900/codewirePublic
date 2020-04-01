@@ -1,44 +1,49 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import { Container } from 'semantic-ui-react'
-import { Button, Card } from 'semantic-ui-react'
+import { Button, Card,Input } from 'semantic-ui-react'
 import '../main.css'
-
-const styles = {
-    container: {
-        height: "100vh"
-    },
-    card: {
-        margin: '15% auto',
-        width: '80%',
-        height: '30%',
-        textAlign: 'center',
-        padding: '25px'
-    },
-    content: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-around'
-    },
-    heading: {
-        fontSize: '45px'
-    },
-    mainText: {
-        fontSize: '20px'
-    },
-    buttons: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        width: '30%',
-        margin: '25px auto',
-    },
-    button: {
-        fontSize: '17px'
-    }
-};
+import styles from "../styles";
+import axios from 'axios';
+import serverURL from '../../assets/server-url';
 
 function Dashboard() {
+    //States
+    const [weather,setweather] = React.useState('');
+    const [data,setdata] = React.useState({
+        city:" ",
+        descp:" ",
+        temp: undefined,
+        temp_min: undefined,
+        temp_max: undefined,
+        wind_speed:undefined,
+    });
+
+    //Handler
+    const handlechange= (e) => {
+        const weather_ = e.target.value;
+        setweather(weather_);
+    };
+    const handleSubmit = (e) =>{
+      e.preventDefault();//Default
+      axios.get(`${serverURL}/weather/`+weather)
+          .then(response => {
+              alert("Working");
+              const info = response.data.data;
+
+              setdata({...data,
+                  city: info.name,
+                  descp: info.weather[0].description,
+                  temp: info.main.temp,
+                  temp_min: info.main.temp_min,
+                  temp_max: info.main.temp_max,
+                  wind_speed: info.wind.speed
+              });
+          })
+          .catch(err =>{
+              console.log(err);
+          })
+    };
     return (
         <Container style={styles.container}>
             <Card style={styles.card}>
@@ -48,8 +53,21 @@ function Dashboard() {
                     </Card.Header>
                     <Card.Description >
                         <h2>Weather Information</h2>
-                        <p>Loading...</p>
+                        <label> City </label>
+                            <Input type="name" placeholder="City" value={weather}  onChange={handlechange} />
                     </Card.Description>
+                    <div>
+                    <Button color={'blue'} style={styles.button} onClick={handleSubmit} style={styles.button}>Submit</Button>
+                    </div>
+                    <div>
+                        <ul>Current Weather
+                            <li>City: {data.city}</li>
+                            <li>Description: {data.descp}</li>
+                            <li>Temperature: {data.temp}</li>
+                            <li>Max Temperature: {data.temp_max}</li>
+                            <li>Min Temperature: {data.temp_min}</li>
+                       </ul>
+                    </div>
                 </Card.Content>
             </Card>
         </Container>
