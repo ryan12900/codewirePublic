@@ -10,4 +10,7 @@ router.post('/accident', admin.createAccident);
 // Route to get all accidents
 router.get('/accidents', admin.getAllAccidents);
 
+// Route to get all accidents
+router.delete('/accident/:id', admin.deleteAccident);
+
 module.exports = router;
