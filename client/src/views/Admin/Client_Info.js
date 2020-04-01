@@ -23,13 +23,15 @@ function Client_info() {
     };
 
     const list = data.map((data) => {
-        return (
-            <div>
-                <li>QuizScore: {data.quizScore}</li>
-                <li>Name: {data.firstName}  {data.lastName}</li>
-                <li>Email: {data.email}</li>
-            </div>
-        )
+        if(data.role === 'customer') {
+            return (
+                <div>
+                    <li>QuizScore: {data.quizScore}</li>
+                    <li>Name: {data.firstName} {data.lastName}</li>
+                    <li>Email: {data.email}</li>
+                </div>
+            )
+        }
     });
 
     return (

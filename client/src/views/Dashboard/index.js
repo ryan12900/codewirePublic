@@ -4,8 +4,6 @@ import { Container } from 'semantic-ui-react'
 import { Button, Card,Input } from 'semantic-ui-react'
 import '../main.css'
 import styles from "../styles";
-import axios from 'axios';
-import serverURL from '../../assets/server-url';
 
 function Dashboard() {
 
