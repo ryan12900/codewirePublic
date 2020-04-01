@@ -5,6 +5,7 @@ import Home from "./views/Home/Home";
 import Register from './views/Register';
 import LogIn from './views/LogIn'
 import Background_pic from "./assets/aerial-photo-of-buildings-and-roads-681335.jpg";
+import Weather from "./views/Weather";
 import Dashboard from "./views/Dashboard";
 import Quiz from "./views/Quiz/Quiz";
 import '../src/views/main.css'
@@ -29,6 +30,7 @@ const App = () => {
             <Route exact path="/register" component={Register} />
             <Route exact path="/log-in" render={() => <LogIn setAuth={setAuth}/>} />
             <ProtectedRoute auth={auth} exact access={'customer'} path="/dashboard" component={Dashboard} />
+            <ProtectedRoute auth={auth} exact access={'customer'} path="/weather" component={Weather} />
             <ProtectedRoute auth={auth} exact access={'customer'} path="/quiz" component={Quiz} />
             <ProtectedRoute auth={auth} exact access={'agent'} path="/admin" component={Admin} />
             <ProtectedRoute auth={auth} exact access={'agent'} path="/add_accident" component={AddAccident} />
