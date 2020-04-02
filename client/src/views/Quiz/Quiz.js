@@ -5,7 +5,8 @@ import styles from '../styles';
 import {Card, Container} from "semantic-ui-react";
 
 
-function Quiz(){
+function Quiz(props){
+    console.log(props)
     return(
         <Container style={styles.container}>
             <Card style={styles.card}>
@@ -15,7 +16,7 @@ function Quiz(){
                     </Card.Header>
 
                 </Card.Content>
-                <MainQuiz />
+                <MainQuiz auth={props.auth}/>
             </Card>
             {/*<Card style={styles.card}>
                 <MainQuiz />

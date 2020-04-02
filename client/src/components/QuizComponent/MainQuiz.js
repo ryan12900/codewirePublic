@@ -17,8 +17,6 @@ class MainQuiz extends React.Component {
         disabled: true,
         isEnd: false
     };
-
-
     loadQuizData = () => {
         // console.log(quizData[0].question)
         this.setState(() => {
@@ -29,7 +27,6 @@ class MainQuiz extends React.Component {
             };
         });
     };
-
     componentDidMount() {
         this.loadQuizData();
     }
@@ -48,7 +45,6 @@ class MainQuiz extends React.Component {
         });
         console.log(this.state.currentQuestion);
     };
-
     componentDidUpdate(prevProps, prevState) {
         if (this.state.currentQuestion !== prevState.currentQuestion) {
             this.setState(() => {
@@ -66,7 +62,6 @@ class MainQuiz extends React.Component {
         this.setState({ myAnswer: answer, disabled: false });
     };
 
-
     finishHandler = () => {
         const { myAnswer, answer, score } = this.state;
         if (myAnswer === answer) {
@@ -83,14 +78,19 @@ class MainQuiz extends React.Component {
     };
     render() {
         const { options, myAnswer, currentQuestion, isEnd } = this.state;
+
+
         if (isEnd) {
-            const {userId} = this.props;
+            const {id} = this.props.auth;
             const {score} = this.state.score;
-            axios.post(`${serverURL}/${userId}/quiz`, {score}).then(() => {
+            console.log(this.props);
+            axios.post(`${serverURL}/customer/${id}/quiz`, {score}).then(() => {
                 alert("Your score was updated!")
             }).catch(() => {
                 alert("There was an error updating your score!");
             });
+
+
 
             return (
                 <div className="result">
