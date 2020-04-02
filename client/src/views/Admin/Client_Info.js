@@ -26,8 +26,8 @@ function Client_info() {
         if(data.role === 'customer') {
             return (
                <Segment.Group>
-                   <Segment color='teal' >QuizScore: {data.quizScore}</Segment>
                    <Segment color='teal' >Name: {data.firstName} {data.lastName}</Segment>
+                   <Segment color='teal' >QuizScore: {data.quizScore}</Segment>
                    <Segment color='teal '>Email: {data.email} </Segment>
                </Segment.Group>
             )
