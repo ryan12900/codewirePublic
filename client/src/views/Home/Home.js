@@ -4,10 +4,12 @@ import { Container } from 'semantic-ui-react'
 import { Button, Card } from 'semantic-ui-react'
 import '../main.css'
 import styles from '../styles'
+import Footer from "../../components/Footer/Footer";
 
 
 function SignUp() {
     return (
+        <div>
         <Container style={styles.container}>
                 <Card style={styles.card}>
                     <Card.Content style={styles.content}>
@@ -31,6 +33,8 @@ function SignUp() {
                     </Card.Content>
                 </Card>
         </Container>
+            <Footer/>
+        </div>
     );
 }
 

@@ -6,6 +6,7 @@ import '../main.css'
 import styles from "../styles";
 import axios from 'axios';
 import serverURL from '../../assets/server-url';
+import Footer from "../../components/Footer/Footer";
 
 function Client_info() {
 
@@ -29,12 +30,14 @@ function Client_info() {
                     <li>QuizScore: {data.quizScore}</li>
                     <li>Name: {data.firstName} {data.lastName}</li>
                     <li>Email: {data.email}</li>
+                    <br></br>
                 </div>
             )
         }
     });
 
     return (
+        <div>
         <Container style={styles.container}>
             <Card style={styles.card}>
                 <Card.Content style={styles.content}>
@@ -52,6 +55,8 @@ function Client_info() {
                 </Card.Content>
             </Card>
         </Container>
+            <Footer/>
+        </div>
     );
 }
 

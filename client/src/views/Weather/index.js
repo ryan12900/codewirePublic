@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import { Container } from 'semantic-ui-react'
-import { Button, Card,Input } from 'semantic-ui-react'
+import { Button, Card,Input,Header,Segment,Container,Grid} from 'semantic-ui-react'
 import '../main.css'
 import styles from "../styles";
 import axios from 'axios';
@@ -28,7 +27,7 @@ function Dashboard() {
       e.preventDefault();//Default
       axios.get(`${serverURL}/weather/`+weather)
           .then(response => {
-              alert("Working");
+              alert("Weather in "+weather);
               const info = response.data.data;
 
               setdata({...data,
@@ -57,16 +56,24 @@ function Dashboard() {
                             <Input type="name" placeholder="City" value={weather}  onChange={handlechange} />
                     </Card.Description>
                     <div>
-                    <Button color={'blue'} style={styles.button} onClick={handleSubmit} style={styles.button}>Submit</Button>
+                    <Button compact color={'blue'} style={styles.button} onClick={handleSubmit}>Submit</Button>
                     </div>
                     <div>
-                        <ul>Current Weather
-                            <li>City: {data.city}</li>
-                            <li>Description: {data.descp}</li>
-                            <li>Temperature: {data.temp}</li>
-                            <li>Max Temperature: {data.temp_max}</li>
-                            <li>Min Temperature: {data.temp_min}</li>
-                       </ul>
+                        <Header as='h3' textAlign='center'>Current Weather in {data.city}</Header>
+                        <Grid container columns={2} stackable>
+                        <Grid.Column>
+                            <Segment color="blue">Description: {data.descp}</Segment>
+                        </Grid.Column>
+                            <Grid.Column>
+                        <Segment color="blue">Temperature: {data.temp}</Segment>
+                            </Grid.Column>
+                        <Grid.Column>
+                            <Segment color="blue">Max Temperature: {data.temp_max}</Segment>
+                            </Grid.Column>
+                            <Grid.Column>
+                            <Segment color="blue" >Min Temperature: {data.temp_min}</Segment>
+                            </Grid.Column>
+                        </Grid>
                     </div>
                 </Card.Content>
             </Card>

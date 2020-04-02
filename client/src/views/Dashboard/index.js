@@ -13,21 +13,28 @@ function Dashboard() {
                 <Card.Content style={styles.content}>
                     <Card.Header>
                         <h1 style={styles.heading}>Dashboard</h1>
+                        <h2>Select an option</h2>
                     </Card.Header>
                     <Card.Description >
-                        <h2>Select an option</h2>
+                        <Link to={'/weather'}>
+                            <Button animated='fade' color='blue' style={styles.button_Admin}>
+                            <Button.Content visible> View Weather </Button.Content>
+                            <Button.Content hidden> Weather </Button.Content>
+                            </Button>
+                        </Link>
+                        <Link to={'/quiz'}>
+                            <Button animated='fade' color='teal' style={styles.button_Admin}>
+                                <Button.Content visible> Driver Safety Quiz </Button.Content>
+                                <Button.Content hidden> Quiz </Button.Content>
+                            </Button>
+                        </Link>
+                        <Link to={'/statistic_city'}>
+                            <Button animated='fade' color='red' style={styles.button_Admin}>
+                                <Button.Content visible> View Accidents </Button.Content>
+                                <Button.Content hidden> Accidents </Button.Content>
+                            </Button>
+                        </Link>
                     </Card.Description>
-                    <Link to={'/weather'}>
-                        <Button>Weather</Button>
-                    </Link>
-                    <br/><br/>
-                    <Link to={'/quiz'}>
-                        <Button>Driver Safety Quiz</Button>
-                    </Link>
-                    <br/><br/>
-                    <Link to={'/statistic_city'}>
-                        <Button>Accidents</Button>
-                    </Link>
                 </Card.Content>
             </Card>
         </Container>
