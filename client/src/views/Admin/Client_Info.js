@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import { Container } from 'semantic-ui-react'
-import { Button, Card } from 'semantic-ui-react'
+import { Button, Card,Container,Segment,Grid,Header } from 'semantic-ui-react'
 import '../main.css'
 import styles from "../styles";
 import axios from 'axios';
@@ -26,12 +25,11 @@ function Client_info() {
     const list = data.map((data) => {
         if(data.role === 'customer') {
             return (
-                <div>
-                    <li>QuizScore: {data.quizScore}</li>
-                    <li>Name: {data.firstName} {data.lastName}</li>
-                    <li>Email: {data.email}</li>
-                    <br></br>
-                </div>
+               <Segment.Group>
+                   <Segment color='teal' >QuizScore: {data.quizScore}</Segment>
+                   <Segment color='teal' >Name: {data.firstName} {data.lastName}</Segment>
+                   <Segment color='teal '>Email: {data.email} </Segment>
+               </Segment.Group>
             )
         }
     });
@@ -44,12 +42,12 @@ function Client_info() {
                     <Card.Header>
                         <h1 style={styles.heading}>Information about Clients</h1>
                         <div>
-                            <Button color={'tea'} style={styles.button} onClick={handleSubmit}>View Info</Button>
+                            <Button color='teal' style={styles.button} onClick={handleSubmit}>View Info</Button>
                         </div>
                         <div>
-                            <ul> Clients
-                                {list}
-                            </ul>
+                            <br></br>
+                            <Header as='h3' textAlign='center'> Client Information </Header>
+                            {list}
                         </div>
                     </Card.Header>
                 </Card.Content>

@@ -21,7 +21,7 @@ function Admin() {
                         <Link to={"/add_accident"}>
                         <Button animated='fade' color='red' style={styles.button_Admin}>
                             <Button.Content visible> Add Accident</Button.Content>
-                            <Button.Content hidden>Go for it</Button.Content>
+                            <Button.Content hidden>Accident</Button.Content>
                         </Button>
                         </Link>
                         <Link to={"/client_info"}>
