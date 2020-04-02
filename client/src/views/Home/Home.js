@@ -3,48 +3,18 @@ import {Link} from "react-router-dom";
 import { Container } from 'semantic-ui-react'
 import { Button, Card } from 'semantic-ui-react'
 import '../main.css'
+import styles from '../styles'
+import Footer from "../../components/Footer/Footer";
 
-const styles = {
-    container: {
-        height: "100vh"
-    },
-    card: {
-        margin: '15% auto',
-        width: '80%',
-        height: '30%',
-        textAlign: 'center',
-        padding: '25px'
-    },
-    content: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-around'
-    },
-    heading: {
-        fontSize: '45px'
-    },
-    mainText: {
-        fontSize: '20px'
-    },
-    buttons: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        width: '30%',
-        margin: '25px auto',
-    },
-    button: {
-        fontSize: '17px'
-    }
-};
 
 function SignUp() {
     return (
+        <div>
         <Container style={styles.container}>
                 <Card style={styles.card}>
                     <Card.Content style={styles.content}>
                         <Card.Header>
-                            <h1 style={styles.heading}>CityRanker</h1>
+                            <h  style={styles.heading}>CityRanker</h>
                         </Card.Header>
                         <Card.Description >
                             <p style={styles.mainText}>CityRanker is a platform for users to compare city insurance rates around the United States.
@@ -63,6 +33,8 @@ function SignUp() {
                     </Card.Content>
                 </Card>
         </Container>
+            <Footer/>
+        </div>
     );
 }
 

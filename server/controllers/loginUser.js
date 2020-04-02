@@ -34,7 +34,9 @@ module.exports = (req, res, next) => {
                 (err, token) => {
                     res.json({
                         success: true,
-                        token: "Bearer " + token
+                        token: "Bearer " + token,
+                        id: user._id,
+                        role: user.role
                     });
                 }
             );

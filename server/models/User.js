@@ -27,6 +27,10 @@ const UserSchema = new Schema({
     role: {
         type: String,
         enum: ['customer','agent']
+    },
+    quizScore: {
+        type: Number,
+        default: 0
     }
 });
 

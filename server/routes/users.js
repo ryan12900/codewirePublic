@@ -6,7 +6,6 @@ const validateLogIn = require('../controllers/validateLogin');
 const validateRegister = require('../controllers/validateRegistration');
 const registerUser = require('../controllers/registerUser');
 const loginUser = require('../controllers/loginUser');
-
 // Register route
 const registerMiddlewares = [validateRegister, registerUser ];
 router.post("/register", registerMiddlewares);
