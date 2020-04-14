@@ -1,12 +1,20 @@
 // Load schemas/models
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
+const code = process.env.CODE || "ABC123";
 
-module.exports = (req, res) => {
+module.exports = (req, res, next) => {
+
+    if(req.body.role === 'agent'){
+        if(req.body.code !== code){
+            res.status(400).json({ code: "Invalid code." });
+            return
+        }
+    }
 
     User.findOne({ email: req.body.email }).then(user => {
         if (user) {
-            return res.status(400).json({ email: "Email already exists" });
+            return res.status(401).json({ email: "Email already exists" });
         } else {
             const newUser = new User({
                 firstName: req.body.firstName,
