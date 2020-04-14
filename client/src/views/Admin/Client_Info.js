@@ -7,13 +7,13 @@ import axios from 'axios';
 import serverURL from '../../assets/server-url';
 import Footer from "../../components/Footer/Footer";
 
-function Client_info() {
+function Client_info({auth}) {
 
     const [data,setdata] = React.useState([]);
 
     const handleSubmit = (e) =>{
       e.preventDefault();
-      axios.get(`${serverURL}/customer/`)
+      axios.get(`${serverURL}/customer/${auth.agentId}`)
           .then(response =>{
               setdata(response.data.data);
           })
@@ -25,11 +25,11 @@ function Client_info() {
     const list = data.map((data) => {
         if(data.role === 'customer') {
             return (
-               <Segment.Group>
-                   <Segment color='teal' >Name: {data.firstName} {data.lastName}</Segment>
-                   <Segment color='teal' >QuizScore: {data.quizScore}</Segment>
-                   <Segment color='teal '>Email: {data.email} </Segment>
-               </Segment.Group>
+               <tr>
+                   <td data-label="name">{data.firstName} {data.lastName}</td>
+                   <td data-label="quizScore">{data.quizScore}</td>
+                   <td data-label="email">{data.email}</td>
+               </tr>
             )
         }
     });
@@ -47,7 +47,18 @@ function Client_info() {
                         <div>
                             <br></br>
                             <Header as='h3' textAlign='center'> Client Information </Header>
-                            {list}
+                            <table className="ui red celled table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Quiz Score</th>
+                                        <th>Email</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {list}
+                                </tbody>
+                            </table>
                         </div>
                     </Card.Header>
                 </Card.Content>
