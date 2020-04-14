@@ -32,7 +32,7 @@ const UserSchema = new Schema({
         type: Number,
         default: 0
     },
-    agentId: {type: Number, required: true}
+    agentId: {type: String, required: true}
 });
 
 module.exports = User = mongoose.model("users", UserSchema);
