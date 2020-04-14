@@ -7,13 +7,13 @@ import axios from 'axios';
 import serverURL from '../../assets/server-url';
 import Footer from "../../components/Footer/Footer";
 
-function Client_info() {
+function Client_info({auth}) {
 
     const [data,setdata] = React.useState([]);
 
     const handleSubmit = (e) =>{
       e.preventDefault();
-      axios.get(`${serverURL}/customer/`)
+      axios.get(`${serverURL}/customer/${auth.agentId}`)
           .then(response =>{
               setdata(response.data.data);
           })
