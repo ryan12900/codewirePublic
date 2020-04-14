@@ -13,7 +13,8 @@ module.exports = (req, res) => {
                 lastName: req.body.lastName,
                 email: req.body.email,
                 password: req.body.password,
-                role: req.body.role
+                role: req.body.role,
+                agentId: req.body.agentId,
             });
 
             // Hash password before saving in database

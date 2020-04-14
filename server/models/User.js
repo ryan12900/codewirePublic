@@ -31,7 +31,8 @@ const UserSchema = new Schema({
     quizScore: {
         type: Number,
         default: 0
-    }
+    },
+    agentId: {type: Number, required: true}
 });
 
 module.exports = User = mongoose.model("users", UserSchema);
