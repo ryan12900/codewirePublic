@@ -7,13 +7,17 @@ import serverURL from '../../assets/server-url';
 import '../main.css'
 import styles from "../styles";
 
-function Login() {
+function Login(props) {
+    // Props
+    const {setAuth} = props;
+
+
     // States
     const [form, setForm] = React.useState({
         email: '',
         password: '',
     });
-    const [loginStatus, setLoginStatus] = React.useState(false);
+    const [loginStatus, setLoginStatus] = React.useState('');
 
     // Handlers
     const handleChange = (e) => {
@@ -23,18 +27,25 @@ function Login() {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios.post(`${serverURL}/users/login`, form)
-            .then(() => {
+            .then((response) => {
                 alert("You were successfully logged in!");
-                setLoginStatus(true);
+                setAuth(response.data);
+                setLoginStatus(response.data.role);
             })
             .catch(() => {
                 alert("There was an error logging you in!");
-                setLoginStatus(false);
+                setLoginStatus('');
             })
     };
 
     if(loginStatus){
-        return <Redirect to={'/dashboard'}/>
+        if(loginStatus === 'customer'){
+            return <Redirect to={'/dashboard'}/>
+        }
+
+        if(loginStatus === 'agent'){
+            return <Redirect to={'/admin'}/>
+        }
     }
 
     return (
