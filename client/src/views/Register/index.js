@@ -7,7 +7,7 @@ import '../main.css'
 import axios from 'axios'
 import serverUrl from '../../assets/server-url';
 import Redirect from "react-router-dom/es/Redirect";
-
+import RegistrationCode from "./RegistrationCode"
 
 function Register() {
     // States
@@ -18,6 +18,8 @@ function Register() {
        password: '',
        password2: '',
         role: '',
+        code: '',
+        agentId: ''
     });
     const [registrationStatus, setRegistrationStatus] = React.useState(false);
 
@@ -99,6 +101,7 @@ function Register() {
                                     value={form.role}
                                 />
                             </Form.Field>
+                            <RegistrationCode form={form} handleChange={handleChange}/>
                         </Form>
                     </Card.Description>
 

@@ -5,7 +5,7 @@ import {Menu, Container, Dropdown,} from "semantic-ui-react";
 
 
 const Index = ({auth, setAuth})=> {
-    let menuOptions;
+    let menuOptions, idBanner;
 
 
     if(auth === undefined || !auth.role){
@@ -19,17 +19,22 @@ const Index = ({auth, setAuth})=> {
                 <Link to={'/quiz'} ><Dropdown.Item style={{color: 'black'}}>Safety Quiz</Dropdown.Item></Link>
                 <Link to={'/statistic_city'}><Dropdown.Item style={{color: 'black'}}>Accidents</Dropdown.Item></Link>
             </Dropdown.Menu>);
+
+        idBanner = (<Menu.Item>Your Agent's Id: {auth.agentId}</Menu.Item>)
     }
 
     if(auth.role === 'agent'){
         menuOptions =
-            (<Dropdown.Menu>
-                <Link to={'/add_accident'} ><Dropdown.Item style={{color: 'black'}}>Add Accident</Dropdown.Item></Link>
-                <Link to={'/info_accident'} ><Dropdown.Item style={{color: 'black'}}>Accident Information</Dropdown.Item></Link>
-                <Link to={'/client_info'} ><Dropdown.Item style={{color: 'black'}}>Client information</Dropdown.Item></Link>
-                <Link to={'/statistics_city'} ><Dropdown.Item style={{color: 'black'}}>City statistics</Dropdown.Item></Link>
+            (
+                <Dropdown.Menu>
+                    <Link to={'/add_accident'} ><Dropdown.Item style={{color: 'black'}}>Add Accident</Dropdown.Item></Link>
+                    <Link to={'/info_accident'} ><Dropdown.Item style={{color: 'black'}}>Accident Information</Dropdown.Item></Link>
+                    <Link to={'/client_info'} ><Dropdown.Item style={{color: 'black'}}>Client information</Dropdown.Item></Link>
+                    <Link to={'/statistics_city'} ><Dropdown.Item style={{color: 'black'}}>City statistics</Dropdown.Item></Link>
+                </Dropdown.Menu>
+            );
 
-            </Dropdown.Menu>);
+        idBanner = (<Menu.Item>Your Agent Id: {auth.agentId}</Menu.Item>)
     }
 
     return (
@@ -37,8 +42,9 @@ const Index = ({auth, setAuth})=> {
             <Menu fixed='top' inverted >
                 <Container>
                     <Link to={"/admin"}>
-                    <Menu.Item as='a'>Home</Menu.Item>
+                        <Menu.Item as='a'>Home</Menu.Item>
                     </Link>
+                    {idBanner}
                     <Dropdown item simple text='Options'>
                         {menuOptions}
                     </Dropdown>
