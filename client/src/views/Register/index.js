@@ -19,7 +19,13 @@ function Register() {
        password2: '',
         role: '',
         code: '',
-        agentId: ''
+        agentId: '',
+        address:'',
+        dashcam:'',
+        phone:'',
+        addy:'',
+        city:'',
+        state:''
     });
     const [registrationStatus, setRegistrationStatus] = React.useState(false);
 

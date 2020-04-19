@@ -23,6 +23,11 @@ module.exports = (req, res, next) => {
                 password: req.body.password,
                 role: req.body.role,
                 agentId: req.body.agentId,
+                phone: req.body.phone,
+                addy:req.body.addy,
+                city:req.body.city,
+                state:req.body.state,
+                dashcam:req.body.dashcam
             });
 
             // Hash password before saving in database

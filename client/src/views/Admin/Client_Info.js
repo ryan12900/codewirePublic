@@ -27,8 +27,13 @@ function Client_info({auth}) {
             return (
                <tr>
                    <td data-label="name">{data.firstName} {data.lastName}</td>
-                   <td data-label="quizScore">{data.quizScore}</td>
                    <td data-label="email">{data.email}</td>
+                   <td data-label="phone">{data.phone}</td>
+                   <td data-label="addy">{data.addy}</td>
+                   <td data-label="city">{data.city}</td>
+                   <td data-label="state">{data.state}</td>
+                   <td data-label="dashcam">{data.dashcam}</td>
+                   <td data-label="quizScore">{data.quizScore}</td>
                </tr>
             )
         }
@@ -51,8 +56,13 @@ function Client_info({auth}) {
                                 <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>Quiz Score</th>
                                         <th>Email</th>
+                                        <th>Phone Number</th>
+                                        <th>Address</th>
+                                        <th>City</th>
+                                        <th>State</th>
+                                        <th>Dashcam</th>
+                                        <th>Quiz Score</th>
                                     </tr>
                                 </thead>
                                 <tbody>

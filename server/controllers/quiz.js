@@ -16,7 +16,7 @@ module.exports = async (req,res) =>{
 module.exports = async (req,res) =>{
 
 
-    user.find({},function (err,data) {
+    User.find({},function (err,data) {
         if(err){
             res.status(404).send("Error");
         }
