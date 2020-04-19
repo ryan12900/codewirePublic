@@ -29,8 +29,8 @@ const Index = ({auth, setAuth})=> {
                 <Dropdown.Menu>
                     <Link to={'/add_accident'} ><Dropdown.Item style={{color: 'black'}}>Add Accident</Dropdown.Item></Link>
                     <Link to={'/info_accident'} ><Dropdown.Item style={{color: 'black'}}>Accident Information</Dropdown.Item></Link>
-                    <Link to={'/client_info'} ><Dropdown.Item style={{color: 'black'}}>Client information</Dropdown.Item></Link>
-                    <Link to={'/statistics_city'} ><Dropdown.Item style={{color: 'black'}}>City statistics</Dropdown.Item></Link>
+                    <Link to={'/client_info'} ><Dropdown.Item style={{color: 'black'}}>Client Information</Dropdown.Item></Link>
+                    <Link to={'/statistics_city'} ><Dropdown.Item style={{color: 'black'}}>City Statistics</Dropdown.Item></Link>
                 </Dropdown.Menu>
             );
 
