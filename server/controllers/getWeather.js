@@ -15,7 +15,7 @@ const fetch = require("node-fetch");
     
     getWeather().then(data => {
         //data.name == null
-        if (data.cod === '404') {
+        if (data.code === '404') {
             let error_obj = {message : "Please Introduce a Valid City"};
             res.status(404).json(error_obj.message);
             //res.write("error");

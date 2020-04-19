@@ -15,7 +15,49 @@ function getIdList(req){
         let id = stateIds.findIndex(getIndex) +1;
         idList.push(id);
     });
+    //console.log("ID",idList);
     return idList;
+}
+
+exports.byStateCountyCityYear=(req,res)=>{
+    getAccidents(getIdList(req).toString()).then((data)=>{
+        res.write(JSON.stringify(data));
+        res.end();
+    })
+    async function getAccidents(IDs){
+        let response = await fetch('https://crashviewer.nhtsa.dot.gov/CrashAPI/crashes/GetCaseList?states='+IDs+'&fromYear=2010&toYear=2020&minNumOfVehicles=1&maxNumOfVehicles=100&format=json');
+        let data = await response.json();
+        let countyNameUp = req.params.countyName.toUpperCase();
+        let length = countyNameUp.length;
+        let stringName = "";
+        let number = 1;
+        let cityNameUp = req.params.cityName.toUpperCase();
+        console.log("data",data.Results[0].length);
+        for (let accident of data.Results[0]) {
+            console.log(accident.CountyName);
+            if (accident.CountyName.toString().substring(0,length) == countyNameUp) {
+                console.log("County is:",accident.CountyName);
+                let index1 = accident.CountyName.indexOf('(');
+                let index2 = accident.CountyName.indexOf(')');
+                let countyID = accident.CountyName.substring(index1+1,index2);
+                console.log(countyID);
+                let response2 = await fetch('https://crashviewer.nhtsa.dot.gov/CrashAPI/crashes/GetCrashesByLocation?fromCaseYear='+req.params.year+'&toCaseYear='+req.params.year+'&state='+IDs+'&county='+countyID+'&format=json');
+                let data2 = await response2.json();
+                for (let accident2 of data2.Results[0]) {
+                    if (accident2.CITYNAME === cityNameUp) {
+                        number++;
+                    }
+                }
+                console.log("Number",number);
+                if (number == 1) {
+                    return 0
+                }
+                return number;
+            }
+        }
+        return 0;
+    }
+
 }
 
 exports.byStateCityYear=(req,res)=>{
@@ -47,11 +89,12 @@ exports.byStateCityYear=(req,res)=>{
                         break;
                     }
                 }
+                data.Results[0][0].COUNTYNAME
             }
 
             i++;
         }
-
+        console.log('Amount of' + i);
         return data.Results[0].filter(accident=>accident.CITYNAME===cityNameUp);
     }
 }
