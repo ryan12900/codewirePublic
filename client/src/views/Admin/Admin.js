@@ -30,7 +30,7 @@ function Admin() {
                             <Button.Content hidden>Client</Button.Content>
                         </Button>
                         </Link>
-                        <Link to={"statistic_city"}>
+                        <Link to={"statistic_city_admin"}>
                         <Button animated="fade" color="blue" style={styles.button_Admin}>
                             <Button.Content visible> Statistics about a City </Button.Content>
                             <Button.Content hidden> City </Button.Content>

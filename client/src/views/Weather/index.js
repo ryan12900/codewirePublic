@@ -136,7 +136,7 @@ function Dashboard() {
 
         axios.get(`${serverURL}/weather/`+weather)
         .then(response => {
-            alert("Weather in "+weather);
+            //alert("Weather in "+weather);
             const info = response.data.data;
 
             setdata({...data,

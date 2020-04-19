@@ -37,6 +37,7 @@ const App = () => {
             <ProtectedRoute auth={auth} exact access={'agent'} path="/client_info" render={() => <Client_info auth={auth}/>} />
             <ProtectedRoute auth={auth} exact access={'agent'} path="/info_accident" component={Info_accident}/>
             <ProtectedRoute auth={auth} exact access={'customer'} path="/statistic_city" component={Statistic_city} />
+            <ProtectedRoute auth={auth} exact access={'agent'} path="/statistic_city_admin" component={Statistic_city} />
             <Redirect to={'/'}/>
       </Switch>
     </div>

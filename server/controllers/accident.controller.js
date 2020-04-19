@@ -32,15 +32,15 @@ exports.byStateCountyCityYear=(req,res)=>{
         let stringName = "";
         let number = 1;
         let cityNameUp = req.params.cityName.toUpperCase();
-        console.log("data",data.Results[0].length);
+        //console.log("data",data.Results[0].length);
         for (let accident of data.Results[0]) {
-            console.log(accident.CountyName);
+            //console.log(accident.CountyName);
             if (accident.CountyName.toString().substring(0,length) == countyNameUp) {
-                console.log("County is:",accident.CountyName);
+                //console.log("County is:",accident.CountyName);
                 let index1 = accident.CountyName.indexOf('(');
                 let index2 = accident.CountyName.indexOf(')');
                 let countyID = accident.CountyName.substring(index1+1,index2);
-                console.log(countyID);
+                //console.log(countyID);
                 let response2 = await fetch('https://crashviewer.nhtsa.dot.gov/CrashAPI/crashes/GetCrashesByLocation?fromCaseYear='+req.params.year+'&toCaseYear='+req.params.year+'&state='+IDs+'&county='+countyID+'&format=json');
                 let data2 = await response2.json();
                 for (let accident2 of data2.Results[0]) {
@@ -48,7 +48,7 @@ exports.byStateCountyCityYear=(req,res)=>{
                         number++;
                     }
                 }
-                console.log("Number",number);
+                console.log("Number in " +cityNameUp,number);
                 if (number == 1) {
                     return 0
                 }
