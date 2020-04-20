@@ -9,9 +9,11 @@ import {Bar} from 'react-chartjs-2';
 import Redirect from "react-router-dom/es/Redirect";
 import {useState} from "react";
 
+
 class Info_accident extends React.Component {
 
     state = {
+        index:0,
         data: [],
         tableRows: [],
         displayBar: false,
@@ -19,8 +21,8 @@ class Info_accident extends React.Component {
             labels: [],
             datasets: [{
                 label: 'Number of Uploaded Accidents',
-                backgroundColor: 'rgba(75,192,192,1)',
                 borderColor: 'rgba(0,0,0,1)',
+                backgroundColor: [],
                 borderWidth: 2,
                 minBarLength: 2,
                 data: []
@@ -123,16 +125,21 @@ class Info_accident extends React.Component {
     addCity(){
         this.state.barState.labels.push(this.state.currCity);
 
+        const colors = ['red','blue','green','pink','purple','yellow'];
+
+        let index = Math.floor(Math.random() * Math.floor(5));
         let filtered = this.state.data.filter(accident=>accident.city.toLowerCase() === this.state.currCity.toLowerCase());
         let count = filtered.length;
 
         this.state.barState.datasets[0].data.push(count);
+        this.state.barState.datasets[0].backgroundColor.push(colors[index]);
 
         this.setState({
 
+            index: this.state.index++,
             barState:{
                 labels: this.state.barState.labels,
-                datasets: this.state.barState.datasets
+                datasets:this.state.barState.datasets
             },
             barOptionState:{
                 title:{
@@ -202,7 +209,7 @@ class Info_accident extends React.Component {
                             />
                             <Button
                                 style={styles.button}
-                                compact color={"blue"}
+                                compact color={"red"}
                                 onClick={this.addCity.bind(this)}
                                 icon labelPosition='right'>
                                     Add City

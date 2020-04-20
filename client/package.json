@@ -33,15 +33,5 @@
   },
   "devDependencies": {
     "react-router-dom": "^5.1.2"
-  },
-  "proxy": {
-    "/": {
-      "target": "http://localhost:5000"
-    }
-  },
-  "proxies": {
-    "/": {
-      "origin": "http://localhost:5000"
-    }
   }
 }

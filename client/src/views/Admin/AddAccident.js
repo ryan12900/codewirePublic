@@ -100,7 +100,6 @@ function AddAccident() {
                 </Card.Content>
             </Card>
         </Container>
-            <Footer/>
         </div>
     );
 }
