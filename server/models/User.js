@@ -32,29 +32,20 @@ const UserSchema = new Schema({
         type: Number,
         default: 0
     },
-    addy: {
-        type: String,
-        required: true
-    },
     dashcam: {
         type: String,
-        required: true
     },
     phone: {
         type: String,
-        required: true
     },
     addy: {
         type: String,
-        required: true
     },
     city: {
         type: String,
-        required: true
     },
     state: {
         type: String,
-        required: true
     },
     agentId: {type: String, required: true}
 });
