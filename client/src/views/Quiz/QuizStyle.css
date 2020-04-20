@@ -1,6 +1,12 @@
 .selected {
     background: linear-gradient(to right, #74ebd5, #acb6e5) !important;
 }
+.incorrect {
+    background:linear-gradient(to right, rgb(226, 104, 128), rgb(214, 171, 179)) !important;
+}
+.correct {
+    background:linear-gradient(to right, #90EE90, rgb(190, 214, 190)) !important;
+}
 
 ul {
     list-style-type: none;

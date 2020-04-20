@@ -9,7 +9,9 @@ import '../../views/Quiz/QuizStyle.css';
 //This file features modified code provide for free use by User NinjaAniket on codesandbox.io at https://codesandbox.io/s/reactquizapp-mty8j
 
 class MainQuiz extends React.Component {
+    
     state = {
+        wrong: [],
         currentQuestion: 0,
         myAnswer: null,
         options: [],
@@ -38,6 +40,10 @@ class MainQuiz extends React.Component {
             this.setState({
                 score: score + 1
             });
+            this.state.wrong.push(20);
+        }
+        else {
+            this.state.wrong.push(this.state.currentQuestion);
         }
 
         this.setState({
@@ -68,6 +74,10 @@ class MainQuiz extends React.Component {
             this.setState({
                 score: score + 1
             });
+            this.state.wrong.push(20);
+        }
+        else {
+            this.state.wrong.push(this.state.currentQuestion);
         }
 
         if (this.state.currentQuestion === quizData.length - 1) {
@@ -82,9 +92,9 @@ class MainQuiz extends React.Component {
 
         if (isEnd) {
             const {id} = this.props.auth;
-            const {score} = this.state.score;
+            const score = this.state.score;
             console.log(this.props);
-            axios.post(`${serverURL}/customer/${id}/quiz`, {score}).then(() => {
+            axios.post(`${serverURL}/customer/${id}/quiz`, score).then(() => {
                 alert("Your score was updated!")
             }).catch(() => {
                 alert("There was an error updating your score!");
@@ -100,7 +110,8 @@ class MainQuiz extends React.Component {
                         <ul>
                             {
                                 quizData.map((item, index) => (
-                                <li className="ui floating message options" key={index}>
+                                <li className={`ui floating message options ${index === this.state.wrong[index] ? "incorrect" : "correct"}`}
+                                     key={index}>
                                     {item.answer}
                                 </li>
                             ))}
