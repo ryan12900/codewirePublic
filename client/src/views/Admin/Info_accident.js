@@ -5,7 +5,6 @@ import { Button, Card, Input, Icon } from 'semantic-ui-react';
 import '../main.css';
 import styles from "../styles";
 import axios from 'axios';
-import serverURL from '../../assets/server-url';
 import {Bar} from 'react-chartjs-2';
 import Redirect from "react-router-dom/es/Redirect";
 import {useState} from "react";
@@ -49,7 +48,7 @@ class Info_accident extends React.Component {
     };
 
     async componentDidMount() {
-            const response = await axios.get(`${serverURL}/admin/accidents`);
+            const response = await axios.get(`/admin/accidents`);
             let data = response.data;
             await this.setState({data: data});
             data = data.map((accident) => {
@@ -79,8 +78,8 @@ class Info_accident extends React.Component {
 
     handleClick(id) {
         return async () => {
-            await axios.delete(`${serverURL}/admin/accident/${id}`);
-            const response = await axios.get(`${serverURL}/admin/accidents`);
+            await axios.delete(`/admin/accident/${id}`);
+            const response = await axios.get(`/admin/accidents`);
             let data = response.data;
             await this.setState({data: data});
             data = data.map((accident) => {

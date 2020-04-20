@@ -1,6 +1,5 @@
 import React from "react";
 import axios from 'axios';
-import serverURL from '../../assets/server-url';
 import { quizData } from "./QuizData";
 import { Button } from 'semantic-ui-react';
 import styles from "../../views/styles";
@@ -94,7 +93,7 @@ class MainQuiz extends React.Component {
             const {id} = this.props.auth;
             const score = this.state.score;
             console.log(this.props);
-            axios.post(`${serverURL}/customer/${id}/quiz`, score).then(() => {
+            axios.post(`/customer/${id}/quiz`, score).then(() => {
                 alert("Your score was updated!")
             }).catch(() => {
                 alert("There was an error updating your score!");
