@@ -81,7 +81,7 @@ class MainQuiz extends React.Component {
 
 
         if (isEnd) {
-            const {id} = this.props.auth.id;
+            const {id} = this.props.auth;
             const score = this.state.score;
             console.log(this.props);
             axios.post(`${serverURL}/customer/${id}/quiz`, score).then(() => {
