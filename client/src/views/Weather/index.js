@@ -417,7 +417,7 @@ function Dashboard() {
             <Card style={styles.card}>
                 <Card.Content style={styles.content}>
                     <Card.Header>
-                        <h1 style={styles.heading}>Accident Information</h1>
+                        <h1 style={styles.heading}>Weather Information</h1>
                     </Card.Header>
                     <Card.Description >
                        <h2> Enter Up to 5 Cities </h2>
