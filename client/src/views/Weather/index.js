@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import { Button, Card,Input,Header,Segment,Container,Grid} from 'semantic-ui-react'
+import { Button, Card,Input,Header,Segment,Container,Grid, Icon} from 'semantic-ui-react'
 import '../main.css'
 import styles from "../styles";
 import axios from 'axios';
@@ -417,36 +417,83 @@ function Dashboard() {
             <Card style={styles.card}>
                 <Card.Content style={styles.content}>
                     <Card.Header>
-                        <h1 style={styles.heading}>Weather Information</h1>
+                        <h1 style={styles.heading}>Accident Information</h1>
                     </Card.Header>
                     <Card.Description >
-                        <h2>Enter 5 cities</h2>
-                        <label> Cities </label>
-                            <Input type="name" placeholder="City 1" value={weather1}  onChange={handlechange1} />
-                            <Input type="name" placeholder="City 2" value={weather2}  onChange={handlechange2} />
-                            <Input type="name" placeholder="City 3" value={weather3}  onChange={handlechange3} />
-                            <Input type="name" placeholder="City 4" value={weather4}  onChange={handlechange4} />
-                            <Input type="name" placeholder="City 5" value={weather5}  onChange={handlechange5} />
-                    </Card.Description>
-                    <div>
-                    <Button compact color={'blue'} style={styles.button} onClick={handleSubmit}>Submit</Button>
+                       <h2> Enter Up to 5 Cities </h2>
+                        <Grid columns={3} centered padded stackable>
+                                <Grid.Column>
+                                    <Segment color='blue' >
+                                <Input type="name" placeholder="City 1" value={weather1}  onChange={handlechange1} />
+                                    </Segment>
+                            </Grid.Column>
+                            <Grid.Column>
+                            <Segment color='blue'>
+                                <Input type="name" placeholder="City 2" value={weather2}  onChange={handlechange2} />
+                            </Segment>
+                            </Grid.Column>
+                            <Grid.Column>
+                            <Segment color='blue'>
+                                <Input type="name" placeholder="City 3" value={weather3}  onChange={handlechange3} />
+                            </Segment>
+                            </Grid.Column>
+                            <Grid.Column>
+                            <Segment color='blue' >
+                                <Input type="name" placeholder="City 4" value={weather4}  onChange={handlechange4} />
+                            </Segment>
+                            </Grid.Column>
+                            <Grid.Column>
+                            <Segment color='blue'>
+                                <Input type="name" placeholder="City 5" value={weather5}  onChange={handlechange5} />
+                            </Segment>
+                            </Grid.Column>
+                        </Grid>
 
+                    </Card.Description>
+                    <br></br>
+                    <div align='center'>
+                        <Button style={styles.button} compact color='blue'  onClick={handleSubmit} icon labelPosition='right' >
+                            Submit
+                                <Icon name='arrow right' />
+                        </Button>
                     </div>
+                    <br></br>
+                    <br></br>
                     <div>
                         <Bar 
                             data = {barState}
                             options={optionState}
                         />
-                        <Button compact color={'blue'} style={styles.button} onClick={handleSubmit3}>Cloudiness</Button>
-                        <Button compact color={'blue'} style={styles.button} onClick={handleSubmit4}>Humidity</Button>
-                        <Button compact color={'blue'} style={styles.button} onClick={handleSubmit5}>Temperature</Button>
-                        <Button compact color={'blue'} style={styles.button} onClick={handleSubmit2}>Visibility</Button>
-                        <Button compact color={'blue'} style={styles.button} onClick={handleSubmit6}>Wind</Button>
+                        <br></br>
+                        <Button style={styles.button} compact color='blue'  onClick={handleSubmit3} >
+                            Cloudiness
+                        </Button>
+                        <Button style={styles.button} compact color='blue'  onClick={handleSubmit4}  >
+                            Humidity
+                        </Button>
+                        <Button style={styles.button} compact color='blue'  onClick={handleSubmit5}  >
+                            Temperature
+                        </Button>
+                        <Button style={styles.button} compact color='blue'  onClick={handleSubmit2}  >
+                            Visibility
+                        </Button>
+                        <Button style={styles.button} compact color='blue'  onClick={handleSubmit6}  >
+                            Weather
+                         </Button>
+                    </div>
+                    <br></br>
+                    <br></br>
+                    <div>
                         <Header as='h3' textAlign='center'>Find Weather for a Specific City</Header>
                         <label> City </label>
-                            <Input type="name" placeholder="City" value={weather}  onChange={handlechange} />
+                            <Input type="name" placeholder="City" value={weather}  onChange={handlechange}/> 
+                          
+                            <Button class="ui icon button" compact color={'blue'} onClick={handleSubmit10} style={styles.cloud_Button}>
+                                <i class="cloud icon"></i>
+                            </Button>
                         <div>
-                             <Button compact color={'blue'} style={styles.button} onClick={handleSubmit10}>Submit</Button>
+                        <br></br>
+                        <br></br>     
                         </div>                           
                         <Grid container columns={2} stackable>
                         <Grid.Column>
