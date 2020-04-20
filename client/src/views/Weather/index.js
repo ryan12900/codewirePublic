@@ -113,7 +113,7 @@ function Dashboard() {
         datasets: [
             {
                 label: " ",
-                backgroundColor: 'rgba(75,192,192,1)',
+                backgroundColor: ['red','blue','green','pink','purple','yellow'],
                 borderColor: 'rgba(0,0,0,1)',
                 borderWidth: 2,
                 data: [undefined,undefined,undefined,undefined,undefined]               
@@ -292,7 +292,7 @@ function Dashboard() {
             datasets: [
                 {
                     label: 'Percentage (%)',
-                    backgroundColor: 'rgb(242,113,28)',
+                    backgroundColor: ['red','blue','green','pink','purple','yellow'],
                     borderColor: 'rgba(0,0,0,1)',
                     borderWidth: 2,
                     data: [data1.cloud, data2.cloud, data3.cloud, data4.cloud, data5.cloud]
@@ -319,7 +319,7 @@ function Dashboard() {
             datasets: [
                 {
                     label: 'Meters (m)',
-                    backgroundColor: 'rgb(0,181,173)',
+                    backgroundColor: ['red','blue','green','pink','purple','yellow'],
                     borderColor: 'rgba(0,0,0,1)',
                     borderWidth: 2,
                     data: [data1.visibility, data2.visibility, data3.visibility, data4.visibility, data5.visibility]
@@ -347,7 +347,7 @@ function Dashboard() {
             datasets: [
                 {
                     label: 'Percentage (%)',
-                    backgroundColor: 'rgb(219,40,40)',
+                    backgroundColor: ['red','blue','green','pink','purple','yellow'],
                     borderColor: 'rgba(0,0,0,1)',
                     borderWidth: 2,
                     data: [data1.humidity, data2.humidity, data3.humidity, data4.humidity, data5.humidity]
@@ -375,7 +375,7 @@ function Dashboard() {
             datasets: [
                 {
                     label: 'Fahrenheit (F)',
-                    backgroundColor: 'rgb(33,186,69)',
+                    backgroundColor: ['red','blue','green','pink','purple','yellow'],
                     borderColor: 'rgba(0,0,0,1)',
                     borderWidth: 2,
                     data: [data1.temp, data2.temp, data3.temp, data4.temp, data5.temp]
@@ -403,7 +403,7 @@ function Dashboard() {
             datasets: [
                 {
                     label: 'Meters Per Second (m/s)',
-                    backgroundColor: 'rgb(33,133,208)',
+                    backgroundColor: ['red','blue','green','pink','purple','yellow'],
                     borderColor: 'rgba(0,0,0,1)',
                     borderWidth: 2,
                     data: [data1.wind_speed, data2.wind_speed, data3.wind_speed, data4.wind_speed, data5.wind_speed]
