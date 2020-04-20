@@ -6,6 +6,7 @@ const AccidentSchema = new Schema({
    time: String,
    nameOfVictim: String,
    nameOfFaultDriver: String,
+   address:String,
    city: String, state: String,
     numPeopleInvolved: Number
 });

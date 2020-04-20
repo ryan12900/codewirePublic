@@ -15,6 +15,7 @@ function AddAccident() {
         time: '',
         nameOfVictim: '',
         nameOfFaultDriver: '',
+        address:'',
         city: '', state: '',
         numPeopleInvolved: ''
     });
@@ -34,6 +35,16 @@ function AddAccident() {
             }).catch(() => {
             alert("There was an error recording the accident.")
         })
+        setForm({
+            date: '',
+            time: '',
+            nameOfVictim: '',
+            nameOfFaultDriver: '',
+            address:'',
+            city: '', state: '',
+            numPeopleInvolved: ''
+        });
+        
     };
 
     return (
@@ -62,6 +73,10 @@ function AddAccident() {
                             <Form.Field>
                                 <label>Name of Fault driver </label>
                                 <input required name={'nameOfFaultDriver'} placeholder='Fault driver'  onChange={handleChange} value={form.nameOfFaultDriver}/>
+                            </Form.Field>
+                            <Form.Field>
+                                <label>Address</label>
+                                <input required name={'address'} placeholder='Address'  onChange={handleChange} value={form.address}/>
                             </Form.Field>
                             <Form.Field>
                                 <label>City</label>

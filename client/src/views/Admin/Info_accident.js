@@ -24,6 +24,7 @@ class Info_accident extends React.Component {
                         <td data-label="time">{accident.time}</td>
                         <td data-label="victim">{accident.nameOfVictim}</td>
                         <td data-label="driver">{accident.nameOfFaultDriver}</td>
+                        <td data-label="address">{accident.address}</td>
                         <td data-label="city">{accident.city}</td>
                         <td data-label="state">{accident.state}</td>
                         <td data-label="people-involved">{accident.numPeopleInvolved}</td>
@@ -53,6 +54,7 @@ class Info_accident extends React.Component {
                         <td data-label="time">{accident.time}</td>
                         <td data-label="victim">{accident.nameOfVictim}</td>
                         <td data-label="driver">{accident.nameOfFaultDriver}</td>
+                        <td data-label="address">{accident.address}</td>
                         <td data-label="city">{accident.city}</td>
                         <td data-label="state">{accident.state}</td>
                         <td data-label="people-involved">{accident.numPeopleInvolved}</td>
@@ -88,6 +90,7 @@ class Info_accident extends React.Component {
                                 <th>Time</th>
                                 <th>Victim</th>
                                 <th>Driver</th>
+                                <th>Address</th>
                                 <th>City</th>
                                 <th>State</th>
                                 <th>People involved</th>
