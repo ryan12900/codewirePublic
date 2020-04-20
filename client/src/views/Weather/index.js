@@ -129,6 +129,13 @@ function Dashboard() {
         legend:{
             display:false,
             position:'right'
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    min: 0,
+                }
+            }]
         }
     });
     const handleSubmit10 = (e) => {

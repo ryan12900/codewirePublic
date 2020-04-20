@@ -234,7 +234,14 @@ function Statistic_city() {
               legend:{
                 display:true,
                 position:'right'
-              }            
+              },    
+              scales: {
+                yAxes: [{
+                    ticks: {
+                        min: 0,
+                    }
+                }]
+            }        
         });
         setBar({
             labels: [data1.city1Name,data2.city2Name,data3.city3Name,data4.city4Name,data5.city5Name],
