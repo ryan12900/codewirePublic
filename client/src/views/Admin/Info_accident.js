@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {Link} from "react-router-dom";
 import { Container } from 'semantic-ui-react';
-import { Button, Card, Input } from 'semantic-ui-react';
+import { Button, Card, Input, Icon } from 'semantic-ui-react';
 import '../main.css';
 import styles from "../styles";
 import axios from 'axios';
@@ -203,12 +203,14 @@ class Info_accident extends React.Component {
                             />
                             <Button
                                 style={styles.button}
-                                color={"blue"}
+                                compact color={"blue"}
                                 onClick={this.addCity.bind(this)}
-                            >Add City</Button>
+                                icon labelPosition='right'>
+                                    Add City
+                                    <Icon name='arrow right'/>
+                                </Button>
                             {this.displayGraph()}
                         </div>
-
                     </Card.Content>
                 </Card>
             </Container>
