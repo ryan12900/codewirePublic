@@ -36,6 +36,13 @@ class Info_accident extends React.Component {
             legend: {
                 display:true,
                 position: 'top'
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        min: 0,
+                    }
+                }]
             }
         },
         currCity: ''
@@ -117,7 +124,7 @@ class Info_accident extends React.Component {
     addCity(){
         this.state.barState.labels.push(this.state.currCity);
 
-        let filtered = this.state.data.filter(accident=>accident.city === this.state.currCity);
+        let filtered = this.state.data.filter(accident=>accident.city.toLowerCase() === this.state.currCity.toLowerCase());
         let count = filtered.length;
 
         this.state.barState.datasets[0].data.push(count);
@@ -137,6 +144,13 @@ class Info_accident extends React.Component {
                 legend: {
                     display:true,
                     position: 'top'
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            min: 0,
+                        }
+                    }]
                 }
             },
             currCity:'',
@@ -146,7 +160,8 @@ class Info_accident extends React.Component {
 
 
     updateCity =(e)=>{
-        const city_ = e.target.value;
+        const buffer = e.target.value.toLowerCase();
+        const city_ = buffer.charAt(0).toUpperCase() + buffer.substring(1);
         this.setState({currCity: city_})
     }
 
