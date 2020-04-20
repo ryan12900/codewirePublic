@@ -38,5 +38,10 @@
     "/": {
       "target": "http://localhost:5000"
     }
+  },
+  "proxies": {
+    "/": {
+      "origin": "http://localhost:5000"
+    }
   }
 }
