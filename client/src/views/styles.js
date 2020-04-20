@@ -3,6 +3,13 @@ const styles = {
     container: {
         height: "100vh",
     },
+    card_client: {
+        height: "auto",
+        width:"auto",
+        margin: '15% auto',
+        textAlign: 'center',
+        padding: '25px'
+    },
     card: {
         margin: '15% auto',
         width: '80%',

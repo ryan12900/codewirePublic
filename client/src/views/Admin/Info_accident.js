@@ -203,7 +203,7 @@ class Info_accident extends React.Component {
                             />
                             <Button
                                 style={styles.button}
-                                compact color={"blue"}
+                                compact color={"red"}
                                 onClick={this.addCity.bind(this)}
                                 icon labelPosition='right'>
                                     Add City
