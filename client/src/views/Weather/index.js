@@ -4,7 +4,6 @@ import { Button, Card,Input,Header,Segment,Container,Grid, Icon} from 'semantic-
 import '../main.css'
 import styles from "../styles";
 import axios from 'axios';
-import serverURL from '../../assets/server-url';
 import {Bar} from 'react-chartjs-2';
 
 function Dashboard() {
@@ -141,7 +140,7 @@ function Dashboard() {
     const handleSubmit10 = (e) => {
         e.preventDefault();//Default
 
-        axios.get(`${serverURL}/weather/`+weather)
+        axios.get(`/weather/`+weather)
         .then(response => {
             //alert("Weather in "+weather);
             const info = response.data.data;
@@ -166,7 +165,7 @@ function Dashboard() {
     const handleSubmit = (e) =>{
       e.preventDefault();//Default
 
-          axios.get(`${serverURL}/weather/`+weather1)
+          axios.get(`/weather/`+weather1)
           .then(response => {
               //alert("Weather1 in "+weather1);
               const info = response.data.data;
@@ -187,7 +186,7 @@ function Dashboard() {
               console.log(err);
           })
 
-        axios.get(`${serverURL}/weather/`+weather2)
+        axios.get(`/weather/`+weather2)
           .then(response => {
               //alert("Weather2 in "+weather2);
               const info = response.data.data;
@@ -208,7 +207,7 @@ function Dashboard() {
               console.log(err);
           })
 
-          axios.get(`${serverURL}/weather/`+weather3)
+          axios.get(`/weather/`+weather3)
           .then(response => {
               //alert("Weather3 in "+weather3);
               const info = response.data.data;
@@ -229,7 +228,7 @@ function Dashboard() {
               console.log(err);
           })
 
-          axios.get(`${serverURL}/weather/`+weather4)
+          axios.get(`/weather/`+weather4)
           .then(response => {
               //alert("Weather4 in "+weather4);
               const info = response.data.data;
@@ -250,7 +249,7 @@ function Dashboard() {
               console.log(err);
           })
 
-          axios.get(`${serverURL}/weather/`+weather5)
+          axios.get(`/weather/`+weather5)
           .then(response => {
              // alert("Weather5 in "+weather5);
               const info = response.data.data;

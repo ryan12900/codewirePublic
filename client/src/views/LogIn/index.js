@@ -3,7 +3,6 @@ import {Link, Redirect} from "react-router-dom";
 import { Container } from 'semantic-ui-react'
 import { Button, Card , Form} from 'semantic-ui-react'
 import axios from 'axios';
-import serverURL from '../../assets/server-url';
 import '../main.css'
 import styles from "../styles";
 
@@ -26,7 +25,7 @@ function Login(props) {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post(`${serverURL}/users/login`, form)
+        axios.post(`/users/login`, form)
             .then((response) => {
                 alert("You were successfully logged in!");
                 setAuth(response.data);

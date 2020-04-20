@@ -4,7 +4,6 @@ import { Button, Card,Container,Table,Header,Icon } from 'semantic-ui-react'
 import '../main.css'
 import styles from "../styles";
 import axios from 'axios';
-import serverURL from '../../assets/server-url';
 import Footer from "../../components/Footer/Footer";
 
 function Client_info({auth}) {
@@ -13,7 +12,7 @@ function Client_info({auth}) {
 
     const handleSubmit = (e) =>{
       e.preventDefault();
-      axios.get(`${serverURL}/customer/${auth.agentId}`)
+      axios.get(`/customer/${auth.agentId}`)
           .then(response =>{
               setdata(response.data.data);
           })

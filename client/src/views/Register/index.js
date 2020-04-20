@@ -5,7 +5,6 @@ import { Button, Card } from 'semantic-ui-react'
 import styles from "../styles";
 import '../main.css'
 import axios from 'axios'
-import serverUrl from '../../assets/server-url';
 import Redirect from "react-router-dom/es/Redirect";
 import RegistrationCode from "./RegistrationCode"
 
@@ -44,7 +43,7 @@ function Register() {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post(`${serverUrl}/users/register`, form)
+        axios.post(`/users/register`, form)
             .then(() => {
                 alert("User was successfully created");
                 setRegistrationStatus(true);
