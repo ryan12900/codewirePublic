@@ -81,10 +81,10 @@ class MainQuiz extends React.Component {
 
 
         if (isEnd) {
-            const {id} = this.props.auth;
-            const {score} = this.state.score;
+            const {id} = this.props.auth.id;
+            const score = this.state.score;
             console.log(this.props);
-            axios.post(`${serverURL}/customer/${id}/quiz`, {score}).then(() => {
+            axios.post(`${serverURL}/customer/${id}/quiz`, score).then(() => {
                 alert("Your score was updated!")
             }).catch(() => {
                 alert("There was an error updating your score!");
