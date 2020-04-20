@@ -46,7 +46,7 @@ function Statistic_city() {
         datasets: [
             {
                 label: " ",
-                backgroundColor: 'rgba(75,192,192,1)',
+                backgroundColor: ['red','blue','green','pink','purple','yellow'],
                 borderColor: 'rgba(0,0,0,1)',
                 borderWidth: 2,
                 data: [undefined,undefined,undefined,undefined,undefined]               
@@ -225,6 +225,8 @@ function Statistic_city() {
     };
     const  handleSubmit3 = (e) =>{
         e.preventDefault();//Default
+        const colors = [];
+
         setOption({
             title:{
                 display:true,
@@ -248,8 +250,8 @@ function Statistic_city() {
             datasets: [
                 {
                     label: 'Number of Accidents',
-                    backgroundColor: 'rgba(75,192,192,1)',
                     borderColor: 'rgba(0,0,0,1)',
+                    backgroundColor: ['red','blue','green','pink','purple','yellow'],
                     borderWidth: 2,
                     data: [data1.city1, data2.city2, data3.city3, data4.city4, data5.city5]
                 }
@@ -335,6 +337,7 @@ function Statistic_city() {
                         </Grid.Column>
                         </Grid>
                         <br></br>
+                        <br></br>
                         <div align='center'>
                             <Button style={styles.button} compact color='blue' onClick={handleSubmit} icon labelPosition='right' >
                                 Get Number of accidents
@@ -342,7 +345,7 @@ function Statistic_city() {
                             </Button>
                             <br></br>
                             <br></br>
-                            <Segment color='blue'> Number of Accidents: {data.length}</Segment>
+                            <Segment compact color='blue'> Number of Accidents: {data.length}</Segment>
                         </div>
                         </Form>
                     </div>

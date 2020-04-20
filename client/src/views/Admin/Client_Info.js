@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import { Button, Card,Container,Segment,Grid,Header } from 'semantic-ui-react'
+import { Button, Card,Container,Table,Header,Icon } from 'semantic-ui-react'
 import '../main.css'
 import styles from "../styles";
 import axios from 'axios';
@@ -22,19 +22,34 @@ function Client_info({auth}) {
           })
     };
 
+    const dash = (data)=>{
+        if(data.dashcam === 'Yes') {
+            return(
+                <Table.Cell textAlign='center'>
+                    <Icon color='green' name='checkmark' size='large'/>
+                </Table.Cell>
+            )}
+        else{
+            return(
+                <Table.Cell textAlign='center'>
+                    <Icon color='red' name='close' size='large'/>
+                </Table.Cell>
+            )}
+    };
+
     const list = data.map((data) => {
         if(data.role === 'customer') {
             return (
-               <tr style={styles.tableText}>
-                   <td data-label="name">{data.firstName} {data.lastName}</td>
-                   <td data-label="email">{data.email}</td>
-                   <td data-label="phone">{data.phone}</td>
-                   <td data-label="addy">{data.addy}</td>
-                   <td data-label="city">{data.city}</td>
-                   <td data-label="state">{data.state}</td>
-                   <td data-label="dashcam">{data.dashcam}</td>
-                   <td data-label="quizScore">{data.quizScore}</td>
-               </tr>
+               <Table.Row>
+                   <Table.Cell singleLine>{data.firstName} {data.lastName}</Table.Cell>
+                   <Table.Cell singleLine>{data.email}</Table.Cell>
+                   <Table.Cell singleLine>{data.phone}</Table.Cell>
+                   <Table.Cell singleLine>{data.addy}</Table.Cell>
+                   <Table.Cell singleLine>{data.city}</Table.Cell>
+                   <Table.Cell singleLine>{data.state}</Table.Cell>
+                   {dash(data)}
+                   <Table.Cell textAlign='center'>{data.quizScore}</Table.Cell>
+               </Table.Row>
             )
         }
     });
@@ -42,33 +57,34 @@ function Client_info({auth}) {
     return (
         <div>
         <Container style={styles.container}>
-            <Card style={styles.card}>
+            <Card style={styles.card_client}>
                 <Card.Content style={styles.content}>
                     <Card.Header>
                         <h1 style={styles.heading}>Client Information</h1>
+                        <br></br>
                         <div>
                             <Button color='teal' style={styles.button} onClick={handleSubmit}>View Info</Button>
                         </div>
                         <div>
                             <br></br>
                             <Header as='h3' textAlign='center'> Client Information </Header>
-                            <table className="ui red celled table">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Phone Number</th>
-                                        <th>Address</th>
-                                        <th>City</th>
-                                        <th>State</th>
-                                        <th>Dashcam</th>
-                                        <th>Quiz Score</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+                            <Table singleLine celled size='small' color='teal'>
+                                <Table.Header>
+                                    <Table.Row>
+                                        <Table.HeaderCell>Name</Table.HeaderCell>
+                                        <Table.HeaderCell>Email</Table.HeaderCell>
+                                        <Table.HeaderCell>Phone Number</Table.HeaderCell>
+                                        <Table.HeaderCell>Address</Table.HeaderCell>
+                                        <Table.HeaderCell>City</Table.HeaderCell>
+                                        <Table.HeaderCell>State</Table.HeaderCell>
+                                        <Table.HeaderCell>DashCam</Table.HeaderCell>
+                                        <Table.HeaderCell>Quiz Score</Table.HeaderCell>
+                                    </Table.Row>
+                                </Table.Header>
+                                <Table.Body>
                                     {list}
-                                </tbody>
-                            </table>
+                                </Table.Body>
+                            </Table>
                         </div>
                     </Card.Header>
                 </Card.Content>
