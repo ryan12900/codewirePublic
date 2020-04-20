@@ -1,10 +1,10 @@
 const User = require('../models/User');
 
 // Extract user id from params and score from body to update DB.
-module.exports = async (req,res) =>{
+exports.updatequiz = async (req,res) =>{
     const userId = req.params.userId;
     const data = req.body;
-    console.log(req.params.userId);
+    //console.log(req.params.userId);
     let string2 = JSON.stringify(data);
     let string3 = string2.substring(2,3);
     let quiz = parseInt(string3);
@@ -17,16 +17,14 @@ module.exports = async (req,res) =>{
     }
 
 };
-// module.exports = async (req,res) =>{
+ exports.read_all = async (req,res) =>{
 
-
-//     User.find({},function (err,data) {
-//         if(err){
-//             res.status(404).send("Error");
-//         }
-//         else{
-//             res.status(200).json({data});
-//         }
-//     });
-
-// };
+     User.find({},function (err,data) {
+         if(err){
+             res.status(404).send("Error");
+         }
+         else{
+             res.status(200).json({data});
+         }
+     });
+ };
