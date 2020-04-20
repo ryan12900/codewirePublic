@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import { Button, Card,Input,Header,Segment,Container,Grid, Form} from 'semantic-ui-react'
+import { Button, Card,Input,Header,Segment,Container,Grid, Form,Message,Icon} from 'semantic-ui-react'
 import '../main.css'
 import styles from "../styles"
 import axios from 'axios';
@@ -8,6 +8,7 @@ import serverURL from '../../assets/server-url'
 import {Bar} from 'react-chartjs-2';
 
 function Statistic_city() {
+
     const [accident1,setAccident1] = React.useState('');
     const [accident2,setAccident2] = React.useState('');
     const [accident3,setAccident3] = React.useState('');
@@ -105,9 +106,12 @@ function Statistic_city() {
         }).catch(() => {
             alert("There was an error retrieving the data.")
         })
+
+
     };
 
     const handleSubmit2 = (e) => {
+
         //const {state, year} = form;
         e.preventDefault();
         let string = accident1;
@@ -213,7 +217,10 @@ function Statistic_city() {
         })
     }
         //alert('data has been set');
-        alert("Cities submitted!\nPlease allow for up to 10 seconds after pressing 'OK' to view results in the graph.\n\nIf city data is missing, please look back and make sure you entered it in the correct format.");
+        alert("Cities submitted!\n" +
+            "Please allow for up to 10 seconds after pressing 'OK' to view results in the graph.\n\n" +
+            "If city data is missing, please look back and make sure you entered it in the correct format.\n" +
+            "For example: Orlando, Orange, Florida");
 
     };
     const  handleSubmit3 = (e) =>{
@@ -251,43 +258,85 @@ function Statistic_city() {
                         <h1 style={styles.heading}>Accident Information</h1>
                     </Card.Header>
                     <Card.Description >
-                        <h2>Enter Up to 5 Cities</h2>
-                            <label> Cities </label>
+                       <h2> Enter Up to 5 Cities </h2>
+                        <Grid columns={3} centered padded stackable>
+                                <Grid.Column>
+                                    <Segment color='blue' >
                                 <Input type="name" placeholder="City, County, State" value={accident1}  onChange={handlechange1} />
+                                    </Segment>
+                            </Grid.Column>
+                            <Grid.Column>
+                            <Segment color='blue'>
                                 <Input type="name" placeholder="City, County, State" value={accident2}  onChange={handlechange2} />
+                            </Segment>
+                            </Grid.Column>
+                            <Grid.Column>
+                            <Segment color='blue'>
                                 <Input type="name" placeholder="City, County, State" value={accident3}  onChange={handlechange3} />
+                            </Segment>
+                            </Grid.Column>
+                            <Grid.Column>
+                            <Segment color='blue' >
                                 <Input type="name" placeholder="City, County, State" value={accident4}  onChange={handlechange4} />
+                            </Segment>
+                            </Grid.Column>
+                            <Grid.Column>
+                            <Segment color='blue'>
                                 <Input type="name" placeholder="City, County, State" value={accident5}  onChange={handlechange5} />
+                            </Segment>
+                            </Grid.Column>
+                        </Grid>
+
                     </Card.Description>
-                    <div>
-                        <Button compact color={'blue'} style={styles.button} onClick={handleSubmit2}>Submit</Button>
+                    <br></br>
+                    <div align='center'>
+                        <Button style={styles.button} compact color='blue'  onClick={handleSubmit2} icon labelPosition='right' >
+                            Submit
+                                <Icon name='arrow right' />
+                        </Button>
                     </div>
+                    <br></br>
+                    <br></br>
                     <div>
                         <Bar 
                             data = {barState}
                             options={optionState}
                         />
-                        <Button compact color={'blue'} style={styles.button} onClick={handleSubmit3}>View Accident Data</Button>
+                        <br></br>
+                        <Button style={styles.button} compact color='blue'  onClick={handleSubmit3} icon labelPosition='right' >
+                            View Accident Data
+                            <Icon name='arrow right' /></Button>
                     </div>
+                    <br></br>
+                    <br></br>
                     <div>
                     <Form style={styles.form}>
-                        <h2>Find Accident Data for a Specific State and Year</h2>
+                        <h2 align='center'>Find Accident Data for a Specific State and Year</h2>
+                        <br></br>
+                        <Grid columns={2}>
+                        <Grid.Column>
                             <Form.Field>
                                 <label>State</label>
                                 <input name={'state'} placeholder='Florida' value={form.state} onChange={handleChange} />
                             </Form.Field>
+                        </Grid.Column>
+                        <Grid.Column>
                             <Form.Field>
                                 <label>Year</label>
                                 <input name={'year'} type={'number'} placeholder='2016' value={form.year} onChange={handleChange}/>
                             </Form.Field>
-
-
-                            <Button onClick={handleSubmit}>Get number of accidents</Button>
-                            <Grid container columns={2} stackable>
-                            <Grid.Column>
-                                <Segment color="blue">Number of Accidents: {data.length}</Segment>
-                            </Grid.Column>
-                            </Grid>
+                        </Grid.Column>
+                        </Grid>
+                        <br></br>
+                        <div align='center'>
+                            <Button style={styles.button} compact color='blue' onClick={handleSubmit} icon labelPosition='right' >
+                                Get Number of accidents
+                                <Icon name='arrow right' />
+                            </Button>
+                            <br></br>
+                            <br></br>
+                            <Segment color='blue'> Number of Accidents: {data.length}</Segment>
+                        </div>
                         </Form>
                     </div>
                 </Card.Content>
