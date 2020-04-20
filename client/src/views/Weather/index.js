@@ -292,7 +292,7 @@ function Dashboard() {
             datasets: [
                 {
                     label: 'Percentage (%)',
-                    backgroundColor: 'rgba(75,192,192,1)',
+                    backgroundColor: 'rgb(242,113,28)',
                     borderColor: 'rgba(0,0,0,1)',
                     borderWidth: 2,
                     data: [data1.cloud, data2.cloud, data3.cloud, data4.cloud, data5.cloud]
@@ -319,7 +319,7 @@ function Dashboard() {
             datasets: [
                 {
                     label: 'Meters (m)',
-                    backgroundColor: 'rgba(75,192,192,1)',
+                    backgroundColor: 'rgb(0,181,173)',
                     borderColor: 'rgba(0,0,0,1)',
                     borderWidth: 2,
                     data: [data1.visibility, data2.visibility, data3.visibility, data4.visibility, data5.visibility]
@@ -347,7 +347,7 @@ function Dashboard() {
             datasets: [
                 {
                     label: 'Percentage (%)',
-                    backgroundColor: 'rgba(75,192,192,1)',
+                    backgroundColor: 'rgb(219,40,40)',
                     borderColor: 'rgba(0,0,0,1)',
                     borderWidth: 2,
                     data: [data1.humidity, data2.humidity, data3.humidity, data4.humidity, data5.humidity]
@@ -375,7 +375,7 @@ function Dashboard() {
             datasets: [
                 {
                     label: 'Fahrenheit (F)',
-                    backgroundColor: 'rgba(75,192,192,1)',
+                    backgroundColor: 'rgb(33,186,69)',
                     borderColor: 'rgba(0,0,0,1)',
                     borderWidth: 2,
                     data: [data1.temp, data2.temp, data3.temp, data4.temp, data5.temp]
@@ -403,7 +403,7 @@ function Dashboard() {
             datasets: [
                 {
                     label: 'Meters Per Second (m/s)',
-                    backgroundColor: 'rgba(75,192,192,1)',
+                    backgroundColor: 'rgb(33,133,208)',
                     borderColor: 'rgba(0,0,0,1)',
                     borderWidth: 2,
                     data: [data1.wind_speed, data2.wind_speed, data3.wind_speed, data4.wind_speed, data5.wind_speed]
@@ -465,20 +465,20 @@ function Dashboard() {
                             options={optionState}
                         />
                         <br></br>
-                        <Button style={styles.button} compact color='blue'  onClick={handleSubmit3} >
+                        <Button style={styles.button} compact color='orange'  onClick={handleSubmit3} >
                             Cloudiness
                         </Button>
-                        <Button style={styles.button} compact color='blue'  onClick={handleSubmit4}  >
+                        <Button style={styles.button} compact color='red'  onClick={handleSubmit4}  >
                             Humidity
                         </Button>
-                        <Button style={styles.button} compact color='blue'  onClick={handleSubmit5}  >
+                        <Button style={styles.button} compact color='green'  onClick={handleSubmit5}  >
                             Temperature
                         </Button>
-                        <Button style={styles.button} compact color='blue'  onClick={handleSubmit2}  >
+                        <Button style={styles.button} compact color='teal'  onClick={handleSubmit2}  >
                             Visibility
                         </Button>
                         <Button style={styles.button} compact color='blue'  onClick={handleSubmit6}  >
-                            Weather
+                            Wind
                          </Button>
                     </div>
                     <br></br>
