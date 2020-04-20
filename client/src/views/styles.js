@@ -48,5 +48,8 @@ const styles = {
     form: {
         textAlign: 'left'
     },
+    tableText: {
+        fontSize:'14px',
+    },
 };
 export default styles

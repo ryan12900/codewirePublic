@@ -25,7 +25,7 @@ function Client_info({auth}) {
     const list = data.map((data) => {
         if(data.role === 'customer') {
             return (
-               <tr>
+               <tr style={styles.tableText}>
                    <td data-label="name">{data.firstName} {data.lastName}</td>
                    <td data-label="email">{data.email}</td>
                    <td data-label="phone">{data.phone}</td>

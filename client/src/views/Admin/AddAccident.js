@@ -54,7 +54,7 @@ function AddAccident() {
             <Card style={styles.card}>
                 <Card.Content style={styles.content}>
                     <Card.Header>
-                        <h1 style={styles.heading}>Accident Information</h1>
+                        <h1 style={styles.heading}>Accident Report</h1>
                     </Card.Header>
                     <Card.Description >
                         <Form style={styles.form}>
