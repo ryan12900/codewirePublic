@@ -7,13 +7,13 @@ import axios from 'axios';
 import serverURL from '../../assets/server-url';
 import Footer from "../../components/Footer/Footer";
 
-function Client_info() {
+function Client_info({auth}) {
 
     const [data,setdata] = React.useState([]);
 
     const handleSubmit = (e) =>{
       e.preventDefault();
-      axios.get(`${serverURL}/customer/`)
+      axios.get(`${serverURL}/customer/${auth.agentId}`)
           .then(response =>{
               setdata(response.data.data);
           })
@@ -25,11 +25,16 @@ function Client_info() {
     const list = data.map((data) => {
         if(data.role === 'customer') {
             return (
-               <Segment.Group>
-                   <Segment color='teal' >Name: {data.firstName} {data.lastName}</Segment>
-                   <Segment color='teal' >QuizScore: {data.quizScore}</Segment>
-                   <Segment color='teal '>Email: {data.email} </Segment>
-               </Segment.Group>
+               <tr style={styles.tableText}>
+                   <td data-label="name">{data.firstName} {data.lastName}</td>
+                   <td data-label="email">{data.email}</td>
+                   <td data-label="phone">{data.phone}</td>
+                   <td data-label="addy">{data.addy}</td>
+                   <td data-label="city">{data.city}</td>
+                   <td data-label="state">{data.state}</td>
+                   <td data-label="dashcam">{data.dashcam}</td>
+                   <td data-label="quizScore">{data.quizScore}</td>
+               </tr>
             )
         }
     });
@@ -40,14 +45,30 @@ function Client_info() {
             <Card style={styles.card}>
                 <Card.Content style={styles.content}>
                     <Card.Header>
-                        <h1 style={styles.heading}>Information about Clients</h1>
+                        <h1 style={styles.heading}>Client Information</h1>
                         <div>
                             <Button color='teal' style={styles.button} onClick={handleSubmit}>View Info</Button>
                         </div>
                         <div>
                             <br></br>
                             <Header as='h3' textAlign='center'> Client Information </Header>
-                            {list}
+                            <table className="ui red celled table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone Number</th>
+                                        <th>Address</th>
+                                        <th>City</th>
+                                        <th>State</th>
+                                        <th>Dashcam</th>
+                                        <th>Quiz Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {list}
+                                </tbody>
+                            </table>
                         </div>
                     </Card.Header>
                 </Card.Content>

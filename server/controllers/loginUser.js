@@ -36,7 +36,8 @@ module.exports = (req, res, next) => {
                         success: true,
                         token: "Bearer " + token,
                         id: user._id,
-                        role: user.role
+                        role: user.role,
+                        agentId: user.agentId
                     });
                 }
             );

@@ -31,7 +31,23 @@ const UserSchema = new Schema({
     quizScore: {
         type: Number,
         default: 0
-    }
+    },
+    dashcam: {
+        type: String,
+    },
+    phone: {
+        type: String,
+    },
+    addy: {
+        type: String,
+    },
+    city: {
+        type: String,
+    },
+    state: {
+        type: String,
+    },
+    agentId: {type: String, required: true}
 });
 
 module.exports = User = mongoose.model("users", UserSchema);

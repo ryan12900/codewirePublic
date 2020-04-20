@@ -6,8 +6,8 @@ const quiz = require('../controllers/quiz');
 const read_client = require('../controllers/read_client');
 
 // Route to update quiz score.
-router.post('/:userId/quiz', quiz);
+router.post('/:userId/quiz', quiz.updatequiz);
 
-router.get('/',read_client);
+router.get('/:agentId',read_client);
 
 module.exports = router;

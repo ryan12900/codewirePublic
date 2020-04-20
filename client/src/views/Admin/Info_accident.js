@@ -1,22 +1,57 @@
 import React, {useEffect} from 'react';
 import {Link} from "react-router-dom";
-import { Container } from 'semantic-ui-react'
-import { Button, Card } from 'semantic-ui-react'
-import '../main.css'
+import { Container } from 'semantic-ui-react';
+import { Button, Card, Input, Icon } from 'semantic-ui-react';
+import '../main.css';
 import styles from "../styles";
-import axios from 'axios'
-import serverURL from '../../assets/server-url'
+import axios from 'axios';
+import serverURL from '../../assets/server-url';
+import {Bar} from 'react-chartjs-2';
 import Redirect from "react-router-dom/es/Redirect";
+import {useState} from "react";
 
 class Info_accident extends React.Component {
 
     state = {
-        tableRows: []
+        data: [],
+        tableRows: [],
+        displayBar: false,
+        barState: {
+            labels: [],
+            datasets: [{
+                label: 'Number of Uploaded Accidents',
+                backgroundColor: 'rgba(75,192,192,1)',
+                borderColor: 'rgba(0,0,0,1)',
+                borderWidth: 2,
+                minBarLength: 2,
+                data: []
+            }]
+        },
+        barOptionState:{
+            title:{
+                display:true,
+                text: 'Accident Data',
+                fontSize:20
+            },
+            legend: {
+                display:true,
+                position: 'top'
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        min: 0,
+                    }
+                }]
+            }
+        },
+        currCity: ''
     };
 
     async componentDidMount() {
             const response = await axios.get(`${serverURL}/admin/accidents`);
             let data = response.data;
+            await this.setState({data: data});
             data = data.map((accident) => {
                 return (
                     <tr>
@@ -24,6 +59,7 @@ class Info_accident extends React.Component {
                         <td data-label="time">{accident.time}</td>
                         <td data-label="victim">{accident.nameOfVictim}</td>
                         <td data-label="driver">{accident.nameOfFaultDriver}</td>
+                        <td data-label="address">{accident.address}</td>
                         <td data-label="city">{accident.city}</td>
                         <td data-label="state">{accident.state}</td>
                         <td data-label="people-involved">{accident.numPeopleInvolved}</td>
@@ -46,6 +82,7 @@ class Info_accident extends React.Component {
             await axios.delete(`${serverURL}/admin/accident/${id}`);
             const response = await axios.get(`${serverURL}/admin/accidents`);
             let data = response.data;
+            await this.setState({data: data});
             data = data.map((accident) => {
                 return (
                     <tr>
@@ -53,6 +90,7 @@ class Info_accident extends React.Component {
                         <td data-label="time">{accident.time}</td>
                         <td data-label="victim">{accident.nameOfVictim}</td>
                         <td data-label="driver">{accident.nameOfFaultDriver}</td>
+                        <td data-label="address">{accident.address}</td>
                         <td data-label="city">{accident.city}</td>
                         <td data-label="state">{accident.state}</td>
                         <td data-label="people-involved">{accident.numPeopleInvolved}</td>
@@ -67,10 +105,65 @@ class Info_accident extends React.Component {
 
             });
             this.setState({tableRows: data})
+
         }
     }
 
+    displayGraph(){
+        if(this.state.displayBar){
+            return <Bar
+                data={this.state.barState}
+                options={this.state.barOptionState}
+            />;
+        }
+        else{
+            return;
+        }
+    }
 
+    addCity(){
+        this.state.barState.labels.push(this.state.currCity);
+
+        let filtered = this.state.data.filter(accident=>accident.city.toLowerCase() === this.state.currCity.toLowerCase());
+        let count = filtered.length;
+
+        this.state.barState.datasets[0].data.push(count);
+
+        this.setState({
+
+            barState:{
+                labels: this.state.barState.labels,
+                datasets: this.state.barState.datasets
+            },
+            barOptionState:{
+                title:{
+                    display:true,
+                    text: this.state.currCity,
+                    fontSize:20
+                },
+                legend: {
+                    display:true,
+                    position: 'top'
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            min: 0,
+                        }
+                    }]
+                }
+            },
+            currCity:'',
+            displayBar: true
+        });
+    }
+
+
+    updateCity =(e)=>{
+        const buffer = e.target.value.toLowerCase();
+        const city_ = buffer.charAt(0).toUpperCase() + buffer.substring(1);
+        this.setState({currCity: city_})
+    }
 
     render() {
         return (
@@ -88,6 +181,7 @@ class Info_accident extends React.Component {
                                 <th>Time</th>
                                 <th>Victim</th>
                                 <th>Driver</th>
+                                <th>Address</th>
                                 <th>City</th>
                                 <th>State</th>
                                 <th>People involved</th>
@@ -99,6 +193,24 @@ class Info_accident extends React.Component {
                             </tbody>
                         </table>
 
+                        <div>
+                            <Card.Description>Add Cities to View Comparison</Card.Description>
+                            <Input
+                                type={"text"}
+                                placeholder={"City"}
+                                value = {this.state.currCity}
+                                onChange={this.updateCity.bind(this)}
+                            />
+                            <Button
+                                style={styles.button}
+                                compact color={"blue"}
+                                onClick={this.addCity.bind(this)}
+                                icon labelPosition='right'>
+                                    Add City
+                                    <Icon name='arrow right'/>
+                                </Button>
+                            {this.displayGraph()}
+                        </div>
                     </Card.Content>
                 </Card>
             </Container>

@@ -35,8 +35,21 @@ const styles = {
         fontSize: '15px',
         marginBottom: '1em',
     },
+    small_Button: {
+        width: '50px',
+        
+    },
+    cloud_Button: {
+        height: '37px',
+        position: 'relative',
+        right: '-20px',
+        
+    },
     form: {
         textAlign: 'left'
+    },
+    tableText: {
+        fontSize:'14px',
     },
 };
 export default styles
