@@ -2,6 +2,10 @@ import React from "react";
 import {Container, Form} from 'semantic-ui-react'
 
 const RegistrationCode = ({form, handleChange}) =>{
+    const options2 = [
+        { key: 'y', text: 'Yes', value: 'Yes' },
+        { key: 'n', text: 'No', value: 'No' },
+    ];
     if(form.role === 'customer'){
         return(
         <div>
@@ -26,12 +30,17 @@ const RegistrationCode = ({form, handleChange}) =>{
                 <input required name={'state'} placeholder='Florida' onChange={handleChange} value={form.state}/>
             </Form.Field>
             <Form.Field>
-                <label>Dashcam</label>
-                <input required name={'dashcam'} placeholder='Yes/No' onChange={handleChange} value={form.dashcam}/>
+            <Form.Select
+                name={'dashcam'}
+                fluid
+                label='Dashcam'
+                options={options2}
+                placeholder='Yes/No'
+                onChange={handleChange}
+                value={form.dashcam}
+            />
             </Form.Field>       
-        </div>
-        
-            
+        </div>  
         )
     }
 

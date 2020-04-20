@@ -45,7 +45,7 @@ function Client_info({auth}) {
             <Card style={styles.card}>
                 <Card.Content style={styles.content}>
                     <Card.Header>
-                        <h1 style={styles.heading}>Information about Clients</h1>
+                        <h1 style={styles.heading}>Client Information</h1>
                         <div>
                             <Button color='teal' style={styles.button} onClick={handleSubmit}>View Info</Button>
                         </div>
