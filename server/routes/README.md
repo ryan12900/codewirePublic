@@ -90,3 +90,14 @@
         "TotalFatalCounts": Number
     }
     ````
+* _accident/state=:stateName/city=:cityName/year=:year_ - Route to accident list of a city in a given year. Returns the same parameters as /state/county/year.
+* _/state=:stateName/county=:countyName/city=:cityName/year=:year_ - Route to accident list of a city in a given year, county included to improve query speed. Returns the same parameters as /state/county/year.
+
+## Admin
+* _admin/accident_ - Route to create and upload and accident. See models/Accident for more details.
+* _admin/accidents_ - Route to pull all created accidents stored in the database. See models/Accident for more details on returned schema.
+* _admin/accident/:id_ - Route to delete the specified accident based on id.
+
+## Customer
+* _customer/:userId/quiz_ - Route to update quiz score of user specified by Id.
+* _customer/:agentId_ - Route to read client based on agent Id provided.

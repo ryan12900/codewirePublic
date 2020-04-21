@@ -35,7 +35,7 @@ exports.byStateCountyCityYear=(req,res)=>{
         //console.log("data",data.Results[0].length);
         for (let accident of data.Results[0]) {
             //console.log(accident.CountyName);
-            if (accident.CountyName.toString().substring(0,length) == countyNameUp) {
+            if (accident.CountyName.toString().substring(0,length) === countyNameUp) {
                 //console.log("County is:",accident.CountyName);
                 let index1 = accident.CountyName.indexOf('(');
                 let index2 = accident.CountyName.indexOf(')');
@@ -49,7 +49,7 @@ exports.byStateCountyCityYear=(req,res)=>{
                     }
                 }
                 console.log("Number in " +cityNameUp,number);
-                if (number == 1) {
+                if (number === 1) {
                     return 0
                 }
                 return number;
