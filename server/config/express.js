@@ -34,7 +34,7 @@ module.exports.init = () => {
         extended: true
     }));
 
-    if (process.env.NODE_ENV === 'production') {
+    if (process.env.NODE_ENV === 's') {
         // Serve any static files
         app.use(express.static(path.join(__dirname, '../../client/build')));
 
