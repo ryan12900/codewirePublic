@@ -30,7 +30,7 @@ const App = () => {
             <Route exact path="/register" component={Register} />
             <Route exact path="/log-in" render={() => <LogIn setAuth={setAuth}/>} />
             <ProtectedRoute auth={auth} exact access={'customer'} path="/dashboard" component={Dashboard} />
-            <ProtectedRoute auth={auth} exact access={'customer'} path="/weather" component={Weather} />
+            <Route exact path="/weather" component={Weather} />
             <ProtectedRoute auth={auth} exact access={'customer'} path="/quiz" render={() => <Quiz auth={auth}/>} />
             <ProtectedRoute auth={auth} exact access={'agent'} path="/admin" component={Admin} />
             <ProtectedRoute auth={auth} exact access={'agent'} path="/add_accident" component={AddAccident} />
