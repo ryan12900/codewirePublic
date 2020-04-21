@@ -5,6 +5,7 @@ import { Button, Card , Form} from 'semantic-ui-react'
 import axios from 'axios';
 import '../main.css'
 import styles from "../styles";
+import serverURL from '../../assets/server-url';
 
 function Login(props) {
     // Props
@@ -25,7 +26,7 @@ function Login(props) {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post(`/users/login`, form)
+        axios.post(`${serverURL}/users/login`, form)
             .then((response) => {
                 alert("You were successfully logged in!");
                 setAuth(response.data);

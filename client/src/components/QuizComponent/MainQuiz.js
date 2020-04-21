@@ -4,6 +4,7 @@ import { quizData } from "./QuizData";
 import { Button } from 'semantic-ui-react';
 import styles from "../../views/styles";
 import '../../views/Quiz/QuizStyle.css';
+import serverURL from '../../assets/server-url';
 
 //This file features modified code provide for free use by User NinjaAniket on codesandbox.io at https://codesandbox.io/s/reactquizapp-mty8j
 
@@ -93,7 +94,7 @@ class MainQuiz extends React.Component {
             const {id} = this.props.auth;
             const score = this.state.score;
             console.log(this.props);
-            axios.post(`/customer/${id}/quiz`, score).then(() => {
+            axios.post(`${serverURL}/customer/${id}/quiz`, score).then(() => {
                 alert("Your score was updated!")
             }).catch(() => {
                 alert("There was an error updating your score!");

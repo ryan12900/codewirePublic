@@ -6,6 +6,8 @@ import styles from "../styles";
 import IndexJs from "../../components/Navbar/index.js";
 import Footer from "../../components/Footer/Footer";
 import axios from "axios";
+import serverURL from '../../assets/server-url';
+
 
 function AddAccident() {
 
@@ -28,7 +30,7 @@ function AddAccident() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        axios.post(`/admin/accident`, form)
+        axios.post(`${serverURL}/admin/accident`, form)
             .then((response) =>{
                 alert(`Successfully recorded accident!`);
             }).catch(() => {

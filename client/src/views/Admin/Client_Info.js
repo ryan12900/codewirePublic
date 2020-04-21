@@ -5,6 +5,7 @@ import '../main.css'
 import styles from "../styles";
 import axios from 'axios';
 import Footer from "../../components/Footer/Footer";
+import serverURL from '../../assets/server-url';
 
 function Client_info({auth}) {
 
@@ -12,7 +13,7 @@ function Client_info({auth}) {
 
     const handleSubmit = (e) =>{
       e.preventDefault();
-      axios.get(`/customer/${auth.agentId}`)
+      axios.get(`${serverURL}/customer/${auth.agentId}`)
           .then(response =>{
               setdata(response.data.data);
           })

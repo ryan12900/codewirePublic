@@ -7,6 +7,7 @@ import '../main.css'
 import axios from 'axios'
 import Redirect from "react-router-dom/es/Redirect";
 import RegistrationCode from "./RegistrationCode"
+import serverUrl from '../../assets/server-url';
 
 function Register() {
     // States
@@ -43,7 +44,7 @@ function Register() {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post(`/users/register`, form)
+        axios.post(`${serverUrl}/users/register`, form)
             .then(() => {
                 alert("User was successfully created");
                 setRegistrationStatus(true);

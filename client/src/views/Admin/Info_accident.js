@@ -8,6 +8,7 @@ import axios from 'axios';
 import {Bar} from 'react-chartjs-2';
 import Redirect from "react-router-dom/es/Redirect";
 import {useState} from "react";
+import serverURL from '../../assets/server-url';
 
 
 class Info_accident extends React.Component {
@@ -50,7 +51,7 @@ class Info_accident extends React.Component {
     };
 
     async componentDidMount() {
-            const response = await axios.get(`/admin/accidents`);
+            const response = await axios.get(`${serverURL}/admin/accidents`);
             let data = response.data;
             await this.setState({data: data});
             data = data.map((accident) => {
@@ -80,8 +81,8 @@ class Info_accident extends React.Component {
 
     handleClick(id) {
         return async () => {
-            await axios.delete(`/admin/accident/${id}`);
-            const response = await axios.get(`/admin/accidents`);
+            await axios.delete(`${serverURL}/admin/accident/${id}`);
+            const response = await axios.get(`${serverURL}/admin/accidents`);
             let data = response.data;
             await this.setState({data: data});
             data = data.map((accident) => {
