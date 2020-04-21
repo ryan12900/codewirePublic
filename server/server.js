@@ -2,13 +2,20 @@ const express = require('./config/express.js');
 const passport = require("passport");
 
 
+// Use env port or default
+const port = process.env.PORT || 5000;
 
-//const express = require('./express.js')
+// Setting up express
+const app = express.init();
+
 // Passport middleware
 app.use(passport.initialize());
 
 // Passport config
 require("./config/passport")(passport);
-const port = process.env.PORT || 5000;
-const app = express.init();
+
+// Public Routes
+
+
+
 app.listen(port, () => console.log(`Server now running on port ${port}!`));
