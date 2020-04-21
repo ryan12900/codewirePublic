@@ -3,11 +3,11 @@ const path = require('path'),
     mongoose = require('mongoose'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
-    users = require("./routes/users"),
-    weather = require("./routes/weather"),
-    customer = require("./routes/customer"),
-    accidentRouter =  require('./routes/accident'),
-    adminRouter = require('./routes/admin'),
+    users = require("../routes/users"),
+    weather = require("../routes/weather"),
+    customer = require("../routes/customer"),
+    accidentRouter =  require('../routes/accident'),
+    adminRouter = require('../routes/admin'),
     cors = require('cors');
     
 
