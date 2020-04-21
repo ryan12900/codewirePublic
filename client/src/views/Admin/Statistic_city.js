@@ -4,7 +4,6 @@ import { Button, Card,Input,Header,Segment,Container,Grid, Form,Message,Icon} fr
 import '../main.css'
 import styles from "../styles"
 import axios from 'axios';
-import serverURL from '../../assets/server-url'
 import {Bar} from 'react-chartjs-2';
 
 function Statistic_city() {
@@ -97,7 +96,7 @@ function Statistic_city() {
         const {state, year} = form;
         e.preventDefault();
 
-        axios.get(`${serverURL}/accidents/states=${state}/years=${year}`)
+        axios.get(`/accidents/states=${state}/years=${year}`)
             .then((response) =>{
                 setData({...data,
                     length: response.data[0].length,
@@ -145,7 +144,7 @@ function Statistic_city() {
         let state5 = buff5.substring(buff5.indexOf(",")+2);
         
         if (!(accident1 == '')) {
-        axios.get(`${serverURL}/accidents/state=${state}/county=${county}/city=${city}/year=2018`)
+        axios.get(`/accidents/state=${state}/county=${county}/city=${city}/year=2018`)
             .then((response) =>{
                 console.log('hit');
                 const info = response.data;
@@ -160,7 +159,7 @@ function Statistic_city() {
         }
 
         if (!(accident1 == '')) {
-        axios.get(`${serverURL}/accidents/state=${state2}/county=${county2}/city=${city2}/year=2018`)
+        axios.get(`/accidents/state=${state2}/county=${county2}/city=${city2}/year=2018`)
             .then((response2) =>{
                 console.log('hit2');
                 const info2 = response2.data;
@@ -175,7 +174,7 @@ function Statistic_city() {
         }
 
         if (!(accident1 == '')) {
-        axios.get(`${serverURL}/accidents/state=${state3}/county=${county3}/city=${city3}/year=2018`)
+        axios.get(`/accidents/state=${state3}/county=${county3}/city=${city3}/year=2018`)
         .then((response3) =>{
             console.log('hit3');
             const info3 = response3.data;
@@ -190,7 +189,7 @@ function Statistic_city() {
     }
 
         if (!(accident1 == '')) {
-        axios.get(`${serverURL}/accidents/state=${state4}/county=${county4}/city=${city4}/year=2018`)
+        axios.get(`/accidents/state=${state4}/county=${county4}/city=${city4}/year=2018`)
         .then((response4) =>{
             const info4 = response4.data;
 
@@ -204,7 +203,7 @@ function Statistic_city() {
     }
 
         if (!(accident1 == '')) {
-        axios.get(`${serverURL}/accidents/state=${state5}/county=${county5}/city=${city5}/year=2018`)
+        axios.get(`/accidents/state=${state5}/county=${county5}/city=${city5}/year=2018`)
         .then((response5) =>{
             const info5 = response5.data;
 
