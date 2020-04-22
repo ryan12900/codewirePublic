@@ -5,6 +5,9 @@ This README is a project overview, everything in this README has its own interna
 * **Client** - front end, client-facing display logic
 * **server** - back end, data-focused logic
 * _Development README_ - initial development README, contains useful initialization and build script information
+* **Login Credentials** - Customer account: r@hotmail.com : password1\
+Agent account: r@ufl.edu : password1\
+If you want to make an admin account, use the registration code: ABC123
 
 # Config
 Included:
@@ -12,8 +15,15 @@ Included:
 * **passport.js** - Passport-JWT configuration and user authentication
 
 Excluded:
-* **config.js** - Can be used to establish local variables (such as database URI) for local hosting. GIT ignored for security
-
+* **config.js** - Can be used to establish local variables (such as database URI) for local hosting. GIT ignored for security Template for config file is
+````
+module.exports = {
+    db: {
+        uri: //place the URI of your mongo database here.
+        secretOrKey: //password for database
+    }
+};
+````
 # Server
 Contains the following backend data (consult internal README files for greater details):
 * **config** - Relevant configuration properties, express and passport setup
@@ -21,6 +31,11 @@ Contains the following backend data (consult internal README files for greater d
 * **models** - Database schema for Users and agent created accidents.
 * **routes** - Routes to query middleware functions.
 * **server.js** - Initializes server and express app.
+* **Environment Variables** - env.JWT_SECRET - Secret to encode JWT authentication tokens.\
+env.CODE - Registration code to verify agent signup\
+env.DB_URI - Database URI for user and accident data storage\
+env.NODE_ENV - Node environment variable\
+env.PUBLIC_URL - Publicly accessible URL \
 
 # Controllers 
 Below is a list of all middleware functions used in the project:
@@ -32,6 +47,15 @@ Below is a list of all middleware functions used in the project:
 * **accidentController** - Returns accident data in JSON format for state, county, and year. The JSON information is fetched from the NHTSA Crash View API at https://crashviewer.nhtsa.dot.gov/CrashAPI/crashes/GetCaseList?states='+IDs+'&fromYear=2010&toYear=2020&minNumOfVehicles=1&maxNumOfVehicles=100&format=json
 * **updateQuiz** - Updates customer quiz scores
 * **read_all/read_client** - Reads current user 
+* Web APIs:
+Accident data reporting\
+URL: ‘https://crashviewer.nhtsa.dot.gov/CrashAPI/crashes/’\
+Key: N/A\
+Weather data reporting\
+URL: ‘http://api.openweathermap.org/data/2.5/’\
+Key: appid=1889e5a93eae80776956083ea2e9f74d\
+To change: server/controllers/getWeather.js line 10
+
 
 # Models
 * **User.js** - Schema for our users. Each user has the following properties:
