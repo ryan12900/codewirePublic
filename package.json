@@ -42,7 +42,7 @@
     "semantic-ui-react": "^0.88.2",
     "should": "^13.2.3",
     "supertest": "^4.0.2",
-    "validator": "^12.2.0",
+    "validator": "^13.7.0",
     "xmlhttprequest": "^1.8.0"
   },
   "homepage": "https://davidmccormack.github.io/codewire/"
